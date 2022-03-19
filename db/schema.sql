@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS lendAHand_db;
+
+CREATE DATABASE lendAHand_db;
