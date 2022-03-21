@@ -6,21 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
-        crossorigin="anonymous">
-    <!-- Compressed JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"
-        defer></script>
+    <link rel="stylesheet" href="./css/foundation.css">
+    <link rel="stylesheet" href="./css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Megrim&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
     <title>Task Train</title>
 </head>
 
@@ -187,10 +180,168 @@
         </table>
     </div> -->
 
+    <!-- POP UP: CREATE A NEW USER -->
+    <div class="grid-x profile">
+        <div class="cell ">
+            <button class="hollow button secondary" data-open="newaccount" href="#">+ Create New Account</button>
+        </div>
+    </div>
 
+    <div class="reveal" id="newaccount" data-reveal>
+        <h2>Create New User</h2>
+        <form>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Username</label>
+                    <input type="text" placeholder="Username" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Email</label>
+                    <input type="text" placeholder="Email" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" />
+                </div>
+            </div>
+        </form>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <button class="hollow button secondary" href="#">Create Account</button>
+            </div>
+        </div>
 
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
+    <!-- POP UP: CREATE NEW TRACK -->
 
+    <div class="grid-x profile">
+        <div class="cell ">
+            <button class="hollow button secondary" data-open="new-track" href="#">Create New Track</button>
+        </div>
+    </div>
+
+    <div class="reveal" id="new-track" data-reveal>
+        <h2>Create New Track</h2>
+        <form>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Title of Track</label>
+                    <input type="text" placeholder="Track" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Created by</label>
+                    <input type="text" placeholder="Username" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Date Range</label>
+                    <input type="text" placeholder="date range" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Why I need help
+                        <textarea placeholder="Post Content"></textarea>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <button class="hollow button secondary" href="#">Create Track</button>
+            </div>
+        </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!-- POP UP: Task Details -->
+
+    <div class="grid-x profile">
+        <div class="cell ">
+            <button class="hollow button secondary" data-open="task-details" href="#">View Task Details: To Be linked to
+                each task</button>
+        </div>
+    </div>
+
+    <div class="reveal" id="task-details" data-reveal>
+        <h3>Task Name</h3>
+        <h4>Who Needs Help</h4>
+        <p>Date</p>
+        <p>Task Description</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- POP UP: CREATE NEW TASK -->
+
+    <div class="grid-x profile">
+        <div class="cell ">
+            <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
+        </div>
+    </div>
+
+    <div class="reveal" id="new-task" data-reveal>
+        <h2>Create New Task</h2>
+        <form>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Title of Track</label>
+                    <input type="text" placeholder="Track" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Which Track Does it Belong To (will list tracks that have been created)
+                        <select>
+                            <option value="custom1">Custom Track Name 1</option>
+                            <option value="custom2">Custom Track Name 2</option>
+                            <option value="custom3">Custom Track Name 3</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Created by</label>
+                    <input type="text" placeholder="Username" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Date Range</label>
+                    <input type="text" placeholder="date range" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Description
+                        <textarea placeholder="Post Content"></textarea>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <button class="hollow button secondary" href="#">Create Track</button>
+            </div>
+        </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
 
     <script>
@@ -203,10 +354,10 @@
             }
         }
     </script>
-    <!-- jQuery must be imported before Foundation -->
-    <script src="js/jquery.min.js"></script>
-    <!-- this will include every plugin and utility required by Foundation -->
-    <script src="js/foundation.min.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 
