@@ -9,38 +9,43 @@
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
         crossorigin="anonymous">
-
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"
         defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Monofett&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Megrim&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
     <title>Task Train</title>
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="topnav" id="myTopnav">
-            <h1 class="custom-h1">Task Train</h1>
-            <a href="#">MY PROFILE</a>
-            <a href="#">FRIENDS</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+    <!-- NAVBAR (ON ALL PAGES EXCEPT FOR LOGIN) -->
+    <header>
+        <h1 class="custom-h1">Task Train</h1>
+        <nav id="hamNav">
+
+            <label for="hamburger">&#9776;</label>
+            <input type="checkbox" id="hamburger" />
+
+
+            <div id="hamItems">
+                <a href="#">PROFILE</a>
+                <a href="#">TRAINS</a>
+                <a href="#">LOGIN/LOGOUT</a>
+            </div>
+        </nav>
     </header>
 
 
-    <!-- LOGIN/LOGOUT/CREATE ACCOUNT PAGE -->
-    <div>
-
+    <!-- LOGIN/LOGOUT/CREATE ACCOUNT PAGE // BELOW FOR MOBILE-->
+    <!-- <div>
+        <h1 class="custom-h1">Task Train</h1>
 
         <form class="custom-form">
             <div class="row">
@@ -58,32 +63,152 @@
                 </div>
             </div>
             <div class="row">
-                <button class="expanded login-button" href="#">LOGIN</button>
+                <button class="expanded secondary login-button" href="#">LOGIN</button>
             </div>
         </form>
 
         <div class="row custom-form">
             <button class="expanded create-button" href="#">Create an account</button>
         </div>
-    </div>
+                <img style="width: 10%; height: 10%"src="./images/train.png" class="logo-center" alt="train logo" >
+    </div> -->
 
     <!-- BODY for PROFILE PAGE-->
 
+    <!-- <div class="grid-x profile">
+        <div class="cell ">
+            <h3 class="custom-h3">John Smith</h3>
+        </div>
+    </div>
+    <div class="grid-x profile">
+    <table class="unstriped">
+        <thead>
+          <tr>
+            <th width="80%"><h4 class="table-h4">Upcoming Tasks</h4></th>
+            <th width="20%"><h4 class="table-h4">Track</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+          </tr>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+          </tr>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div> -->
+
+    <!-- BODY TRACK PAGE - TO LIST ALL POSSIBLE TRACKS -->
+
+    <!-- <div class="grid-x profile">
+        <div class="cell ">
+            <h3 class="custom-h3">All Available Tracks/Trains</h3>
+            <button class="hollow button secondary" href="#">+ Add New Track</button>
+        </div>
+    </div>
+    <div class="grid-x profile">
+    <table class="unstriped">
+        <thead>
+          <tr>
+            <th width="50%"><h4 class="table-h4">Tracks</h4></th>
+            <th width="30%"><h4 class="table-h4">Owner</h4></th>
+            <th width="20%"><h4 class="table-h4">See All Tasks</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Username</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
+          </tr>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Username</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
+          </tr>
+          <tr>
+            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Username</p></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div> -->
+
+
+    <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS-->
+
+    <!-- <div class="grid-x profile">
+        <div class="cell ">
+            <h3 class="custom-h3">Name of Track</h3>
+            <h4 class="custom-h4">Created by USERNAME</h4>
+            <button class="hollow button secondary" href="#">+ Add New Task</button>
+        </div>
+    </div>
+    <div class="grid-x profile">
+        <table class="unstriped">
+            <thead>
+                <tr>
+                    <th width="70%">
+                        <h4 class="table-h4">Tasks</h4>
+                    </th>
+                    <th width="30%">
+                        <h4 class="table-h4">Volunteer?</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p class="custom-p">Task Title Goes Here</p>
+                    </td>
+                    <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="custom-p">Task Title Goes Here</p>
+                    </td>
+                    <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="custom-p">Task Title Goes Here</p>
+                    </td>
+                    <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
 
 
 
 
+
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    <!-- jQuery must be imported before Foundation -->
+    <script src="js/jquery.min.js"></script>
+    <!-- this will include every plugin and utility required by Foundation -->
+    <script src="js/foundation.min.js"></script>
 
 </body>
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
+
 
 </html>
