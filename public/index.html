@@ -37,7 +37,7 @@
 
 
     <!-- LOGIN/LOGOUT/CREATE ACCOUNT PAGE // BELOW FOR MOBILE-->
-    <!-- <div>
+    <div>
         <h1 class="custom-h1">Task Train</h1>
 
         <form class="custom-form">
@@ -64,11 +64,11 @@
             <button class="expanded create-button" href="#">Create an account</button>
         </div>
                 <img style="width: 10%; height: 10%"src="./images/train.png" class="logo-center" alt="train logo" >
-    </div> -->
+    </div>
 
     <!-- BODY for PROFILE PAGE-->
 
-    <!-- <div class="grid-x profile">
+    <div class="grid-x profile">
         <div class="cell ">
             <h3 class="custom-h3">John Smith</h3>
         </div>
@@ -96,13 +96,13 @@
           </tr>
         </tbody>
       </table>
-      </div> -->
+      </div>
 
     <!-- BODY TRACK PAGE - TO LIST ALL POSSIBLE TRACKS -->
 
-    <!-- <div class="grid-x profile">
+    <div class="grid-x profile">
         <div class="cell ">
-            <h3 class="custom-h3">All Available Tracks/Trains</h3>
+            <h3 class="custom-h3">All Available Tracks</h3>
             <button class="hollow button secondary" href="#">+ Add New Track</button>
         </div>
     </div>
@@ -117,31 +117,33 @@
         </thead>
         <tbody>
           <tr>
-            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Track Title Goes Here</p></td>
             <td><p class="custom-p">Username</p></td>
             <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
           </tr>
           <tr>
-            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Track Title Goes Here</p></td>
             <td><p class="custom-p">Username</p></td>
             <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
           </tr>
           <tr>
-            <td><p class="custom-p">Task Title Goes Here</p></td>
+            <td><p class="custom-p">Track Title Goes Here</p></td>
             <td><p class="custom-p">Username</p></td>
             <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
           </tr>
         </tbody>
       </table>
-      </div> -->
+      </div>
 
 
     <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS-->
 
-    <!-- <div class="grid-x profile">
+    <div class="grid-x profile">
         <div class="cell ">
-            <h3 class="custom-h3">Name of Track</h3>
-            <h4 class="custom-h4">Created by USERNAME</h4>
+            <h3 class="custom-h3">Joanna Post-Partum</h3>
+            <h4 class="custom-h4">Created by JOANNA</h4>
+            <h5>Date Range or Date Started? </h5>
+            <h5>Description</h5>
             <button class="hollow button secondary" href="#">+ Add New Task</button>
         </div>
     </div>
@@ -178,7 +180,7 @@
                 </tr>
             </tbody>
         </table>
-    </div> -->
+    </div>
 
     <!-- POP UP: CREATE A NEW USER -->
     <div class="grid-x profile">
@@ -239,7 +241,7 @@
             </div>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
-                    <label>Created by</label>
+                    <label>Created by (autofill)</label>
                     <input type="text" placeholder="Username" />
                 </div>
             </div>
@@ -279,8 +281,9 @@
     <div class="reveal" id="task-details" data-reveal>
         <h3>Task Name</h3>
         <h4>Who Needs Help</h4>
-        <p>Date</p>
+        <p>Date/Due Date & Time</p>
         <p>Task Description</p>
+        <p>Belongs to: TRACK NAME</p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -298,8 +301,8 @@
         <form>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
-                    <label>Title of Track</label>
-                    <input type="text" placeholder="Track" />
+                    <label>Title of Task</label>
+                    <input type="text" placeholder="Task" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
@@ -315,7 +318,7 @@
             </div>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
-                    <label>Created by</label>
+                    <label>Created by (USERNAME SHOULD BE AUTO FILLED)</label>
                     <input type="text" placeholder="Username" />
                 </div>
             </div>
