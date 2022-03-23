@@ -20,6 +20,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
+      unique: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -34,7 +35,6 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        
       },
     },
   },
@@ -45,8 +45,7 @@ User.init(
         return newUserData;
       },
     },
-  },
-  {
+  
     sequelize,
     timestamps: false,
     freezeTableName: true,
