@@ -14,7 +14,6 @@ Task.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true
     },
     description: {
       type: DataTypes.TEXT,
@@ -46,13 +45,6 @@ Task.init(
         key: 'username',
       },
     },
-    train_name: {
-      type:DataTypes.INTEGER,
-      references: {
-        model: 'train',
-        key: 'name',
-      },
-    }
   },
   {
     sequelize,
