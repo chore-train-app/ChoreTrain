@@ -61,13 +61,14 @@
         </form>
 
         <div class="row custom-form">
-            <button class="expanded create-button" href="#">Create an account</button>
+            <div class="cell text-center ">
+                <button class="hollow button secondary" data-open="newaccount" href="#">+ Create New Account</button>
+            </div>
         </div>
-                <img style="width: 10%; height: 10%"src="./images/train.png" class="logo-center" alt="train logo" >
+        <img style="width: 10%; height: 10%" src="./images/train.png" class="logo-center" alt="train logo">
     </div>
 
     <!-- BODY for PROFILE PAGE-->
-
     <div class="grid-x profile">
         <div class="cell ">
             <h3 class="custom-h3">John Smith</h3>
@@ -78,83 +79,75 @@
         <thead>
           <tr>
             <th width="80%"><h4 class="table-h4">Upcoming Tasks</h4></th>
-            <th width="20%"><h4 class="table-h4">Track</h4></th>
+            <th width="20%"><h4 class="table-h4">Details</h4></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><p class="custom-p">Task Title Goes Here</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
           </tr>
           <tr>
             <td><p class="custom-p">Task Title Goes Here</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
           </tr>
           <tr>
             <td><p class="custom-p">Task Title Goes Here</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">Learn More</a></td>
+            <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
           </tr>
         </tbody>
       </table>
       </div>
-
-    <!-- BODY TRACK PAGE - TO LIST ALL POSSIBLE TRACKS -->
-
-    <div class="grid-x profile">
+      <div class="grid-x profile">
         <div class="cell ">
-            <h3 class="custom-h3">All Available Tracks</h3>
-            <button class="hollow button secondary" href="#">+ Add New Track</button>
+            <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
         </div>
     </div>
-    <div class="grid-x profile">
-    <table class="unstriped">
-        <thead>
-          <tr>
-            <th width="50%"><h4 class="table-h4">Tracks</h4></th>
-            <th width="30%"><h4 class="table-h4">Owner</h4></th>
-            <th width="20%"><h4 class="table-h4">See All Tasks</h4></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><p class="custom-p">Track Title Goes Here</p></td>
-            <td><p class="custom-p">Username</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
-          </tr>
-          <tr>
-            <td><p class="custom-p">Track Title Goes Here</p></td>
-            <td><p class="custom-p">Username</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
-          </tr>
-          <tr>
-            <td><p class="custom-p">Track Title Goes Here</p></td>
-            <td><p class="custom-p">Username</p></td>
-            <td><a href="#" class="button hollow secondary expanded table-button">See Tasks</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
+      <div class="grid-x profile">
+        <table class="unstriped">
+            <thead>
+              <tr>
+                <th width="80%"><h4 class="table-h4">List of Tasks I Need Help With</h4></th>
+                <th width="20%"><h4 class="table-h4">Details</h4></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p class="custom-p">Task Title Goes Here</p></td>
+                <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+              </tr>
+              <tr>
+                <td><p class="custom-p">Task Title Goes Here</p></td>
+                <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+              </tr>
+              <tr>
+                <td><p class="custom-p">Task Title Goes Here</p></td>
+                <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
 
 
-    <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS-->
+
+    <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS
 
     <div class="grid-x profile">
         <div class="cell ">
-            <h3 class="custom-h3">Joanna Post-Partum</h3>
-            <h4 class="custom-h4">Created by JOANNA</h4>
-            <h5>Date Range or Date Started? </h5>
-            <h5>Description</h5>
-            <button class="hollow button secondary" href="#">+ Add New Task</button>
+            <h3 class="custom-h3">All Available Tasks at ZIP</h3>
         </div>
     </div>
     <div class="grid-x profile">
         <table class="unstriped">
             <thead>
                 <tr>
-                    <th width="70%">
+                    <th width="60%">
                         <h4 class="table-h4">Tasks</h4>
                     </th>
-                    <th width="30%">
+                    <th width="20%">
+                        <h4 class="table-h4">When</h4>
+                    </th>
+                    <th width="20%">
                         <h4 class="table-h4">Volunteer?</h4>
                     </th>
                 </tr>
@@ -164,31 +157,34 @@
                     <td>
                         <p class="custom-p">Task Title Goes Here</p>
                     </td>
-                    <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
-                </tr>
-                <tr>
                     <td>
-                        <p class="custom-p">Task Title Goes Here</p>
+                        <p>MM/DD/YY @ TIME</p>
                     </td>
                     <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
                 </tr>
                 <tr>
                     <td>
                         <p class="custom-p">Task Title Goes Here</p>
+                    </td>
+                    <td>
+                        <p>MM/DD/YY @ TIME</p>
+                    </td>
+                    <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="custom-p">Task Title Goes Here</p>
+                    </td>
+                    <td>
+                        <p>MM/DD/YY @ TIME</p>
                     </td>
                     <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
 
     <!-- POP UP: CREATE A NEW USER -->
-    <div class="grid-x profile">
-        <div class="cell ">
-            <button class="hollow button secondary" data-open="newaccount" href="#">+ Create New Account</button>
-        </div>
-    </div>
-
     <div class="reveal" id="newaccount" data-reveal>
         <h2>Create New User</h2>
         <form>
@@ -202,6 +198,12 @@
                 <div class="large-12 cell">
                     <label>Email</label>
                     <input type="text" placeholder="Email" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Zip</label>
+                    <input type="text" placeholder="Zip" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
@@ -222,53 +224,6 @@
         </button>
     </div>
 
-    <!-- POP UP: CREATE NEW TRACK -->
-
-    <div class="grid-x profile">
-        <div class="cell ">
-            <button class="hollow button secondary" data-open="new-track" href="#">Create New Track</button>
-        </div>
-    </div>
-
-    <div class="reveal" id="new-track" data-reveal>
-        <h2>Create New Track</h2>
-        <form>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Title of Track</label>
-                    <input type="text" placeholder="Track" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Created by (autofill)</label>
-                    <input type="text" placeholder="Username" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Date Range</label>
-                    <input type="text" placeholder="date range" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Why I need help
-                        <textarea placeholder="Post Content"></textarea>
-                    </label>
-                </div>
-            </div>
-        </form>
-        <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-                <button class="hollow button secondary" href="#">Create Track</button>
-            </div>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
     <!-- POP UP: Task Details -->
 
     <div class="grid-x profile">
@@ -279,23 +234,43 @@
     </div>
 
     <div class="reveal" id="task-details" data-reveal>
-        <h3>Task Name</h3>
-        <h4>Who Needs Help</h4>
-        <p>Date/Due Date & Time</p>
-        <p>Task Description</p>
-        <p>Belongs to: TRACK NAME</p>
+        <h4>Walk My Dog</h4>
+        <h5>Created by: John Smith</h5>
+        <p>April 2, 2022 at 10 am</p>
+        <p>I've just had surgery and would need someone to help me take the dog out for a walk. </p>
+
+        <div class="cell"><p>if task is unclaimed</p>
+            <button class="hollow button secondary" data-open="task-details" href="#">Volunteer for this task!
+            </button>
+        </div>
+
+
+        <div class="cell"><p>if session user == task owner</p>
+            <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
+            </button>
+            <button class="hollow button secondary" data-open="task-details" href="#">Edit Task
+            </button>
+        </div>
+
+        <div class="cell"><p>if session user == task taker</p>
+            <button class="hollow button secondary" data-open="task-details" href="#">Cancel
+            </button>
+        </div>
+
+        <div class="cell"><p>Comment Section - to be added</p>
+        </div>
+
+        <div class="cell"><p>Add to calendar - optional</p>
+        </div>
+
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+
+
     <!-- POP UP: CREATE NEW TASK -->
-
-    <div class="grid-x profile">
-        <div class="cell ">
-            <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
-        </div>
-    </div>
-
     <div class="reveal" id="new-task" data-reveal>
         <h2>Create New Task</h2>
         <form>
@@ -307,24 +282,7 @@
             </div>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
-                    <label>Which Track Does it Belong To (will list tracks that have been created)
-                        <select>
-                            <option value="custom1">Custom Track Name 1</option>
-                            <option value="custom2">Custom Track Name 2</option>
-                            <option value="custom3">Custom Track Name 3</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Created by (USERNAME SHOULD BE AUTO FILLED)</label>
-                    <input type="text" placeholder="Username" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Date Range</label>
+                    <label>Date</label>
                     <input type="text" placeholder="date range" />
                 </div>
             </div>
@@ -338,7 +296,7 @@
         </form>
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
-                <button class="hollow button secondary" href="#">Create Track</button>
+                <button class="hollow button secondary" href="#">Create Task</button>
             </div>
         </div>
         <button class="close-button" data-close aria-label="Close modal" type="button">
