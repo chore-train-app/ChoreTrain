@@ -23,6 +23,7 @@ body {
     background-color: var(--lightturqoise);
     font-family: 'Megrim', cursive;
     font-family: 'Raleway', sans-serif;
+    color: var(--darkgray);
 }
 
 header {
@@ -151,6 +152,40 @@ header {
     font-family: 'Raleway', sans-serif;
 
 }
+
+/*COMMENT BOX*/
+.container {
+    width: 520px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .button-group {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .posts {
+    clear: both;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    text-align: left;
+    color: var(--darkgray);
+    cursor: pointer;
+  }
+  .posts li {
+    background-color: #fff;
+    border: 1.5px solid #d8d8d8;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    min-height: 42px;
+    color: var(--darkgray);
+  }
+  
+  
 
 @media only screen and (max-width: 768px) {
   #hamNav label { 

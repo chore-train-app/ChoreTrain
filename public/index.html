@@ -130,7 +130,7 @@
 
 
 
-    <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS
+    <!-- SPECIFIC TRACK PAGE WITH LIST OF ASSOCIATED TASKS-->
 
     <div class="grid-x profile">
         <div class="cell ">
@@ -182,7 +182,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>-->
+    </div>
 
     <!-- POP UP: CREATE A NEW USER -->
     <div class="reveal" id="newaccount" data-reveal>
@@ -303,6 +303,23 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+<!-- CHAT BOX -->
+    <div class="grid-x profile">
+        <div class=" cell container">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control status-box" rows="3"
+                        placeholder="Enter your comment here..."></textarea>
+                </div>
+            </form>
+            <div class="button-group pull-right" style="cursor: pointer;">
+                <a class="btn btn-primary button secondary hollow">Post</a>
+            </div>
+            <ul class="posts">
+            </ul>
+        </div>
+    </div>
+
 
 
     <script>
@@ -315,6 +332,8 @@
             }
         }
     </script>
+
+    <script src="js/chat.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
