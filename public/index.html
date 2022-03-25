@@ -41,23 +41,23 @@
     <div>
         <h1 class="custom-h1">Task Train</h1>
 
-        <form class="custom-form">
+        <form class="custom-form login-form">
             <div class="row">
                 <div>
                     <label class="signup">Username
-                        <input type="text" placeholder="Username">
+                        <input id="login-username" type="text" placeholder="Username">
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div>
                     <label class="signup">Password
-                        <input type="text" placeholder="password">
+                        <input id="login-password" type="password" placeholder="password">
                     </label>
                 </div>
             </div>
             <div class="row">
-                <button class="expanded secondary login-button" href="#">LOGIN</button>
+                <button type="submit" class="expanded secondary button login-button" href="#">LOGIN</button>
             </div>
         </form>
 
@@ -68,6 +68,7 @@
         </div>
         <img style="width: 10%; height: 10%" src="./images/train.png" class="logo-center" alt="train logo">
     </div>
+    <script src="./js/login.js"></script>
 
     <!-- BODY for PROFILE PAGE-->
     <div class="grid-x profile">
@@ -188,17 +189,17 @@
     <!-- POP UP: CREATE A NEW USER -->
     <div class="reveal" id="newaccount" data-reveal>
         <h2>Create New User</h2>
-        <form>
+        <form class="signup-form">
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <label>Username</label>
-                    <input type="text" placeholder="Username" />
+                    <input id="signup-username" type="text" placeholder="Username" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <label>Email</label>
-                    <input type="text" placeholder="Email" />
+                    <input id="signup-email" type="text" placeholder="Email" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
@@ -210,7 +211,7 @@
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <label>Password</label>
-                    <input type="password" placeholder="Password" />
+                    <input id="signup-password" type="password" placeholder="Password" />
                 </div>
             </div>
         </form>
@@ -319,6 +320,8 @@
             </ul>
         </div>
     </div>
+
+
 
     <script>
         function myFunction() {
