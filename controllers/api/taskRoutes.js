@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const { Train, Task, User } = require('../../models');
+const { Task, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-//get one task by name
-router.get('/:name', async (req, res) => {
+//get one task by id
+router.get('/:id', withAuth, async (req, res) => {
     try {
-      const taskData = await Task.findByPk(req.params.name, {
-        include: [{ model: User },{ model: Train }],
+      const taskData = await Task.findByPk(req.params.id, {
+        include: [{ model: User }],
       });
   
       if (!taskData) {
-        res.status(404).json({ message: 'No task found with that name!' });
+        res.status(404).json({ message: 'No task found with that ID!' });
         return;
       }
       res.status(200).json(taskData);
@@ -18,11 +19,11 @@ router.get('/:name', async (req, res) => {
     }
   });
   
-  //get tasks by user
-  router.get('/:taskCreator', async (req, res) => {
+  //get tasks by Creator
+  router.get('/creator/:taskCreator', withAuth, async (req, res) => {
     try {
       const taskData = await Task.findByPk(req.params.taskCreator, {
-        include: [{ model: User },{ model: Train }],
+        include: [{ model: User }],
       });
   
       if (!taskData) {
@@ -34,23 +35,61 @@ router.get('/:name', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  //get tasks by Creator
+  router.get('/taker/:taskTaker', withAuth, async (req, res) => {
+    try {
+      const taskData = await Task.findByPk(req.params.taskTaker, {
+        include: [{ model: User }],
+      });
+  
+      if (!taskData) {
+        res.status(404).json({ message: 'No task found with that user!' });
+        return;
+      }
+      res.status(200).json(taskData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/zipCode/:zipCode', withAuth, async (req, res) => {
+    try {
+      const taskData = await Task.findByPk(req.params.zipCode, {
+        include: [{ model: User }],
+      });
+  
+      if (!taskData) {
+        res.status(404).json({ message: 'No task found with that zipcode!' });
+        return;
+      }
+      res.status(200).json(taskData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
   //new task
-  router.post('/', async (req, res) => {
+  router.post('/', withAuth, async (req, res) => {
     try {
-      const taskData = await Task.create(req.body);
-      res.status(200).json(taskData);
+      const newTask = await Task.create({
+        ...req.body,
+        taskCreator: req.session.user_id,
+      });
+  
+      res.status(200).json(newTask);
     } catch (err) {
       res.status(400).json(err);
     }
   });
   
-  //update task by taskTaker
-  router.put('/:taskTaker', async (req, res) => {
+  //update task id (through taskCreator)
+  router.put('/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.update(req.body,{
         where: {
-          id: req.params.taskTaker,
+          taskCreator: req.params.taskCreator,
+          user_id: req.session.user_id,
         },
       });
   
@@ -64,18 +103,19 @@ router.get('/:name', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-  //update train by status
-  router.put('/:status', async (req, res) => {
+
+  //update task id (through taskTaker)
+  router.put('/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.update(req.body,{
         where: {
-          id: req.params.status,
+          taskCreator: req.params.taskCreator,
+          user_id: req.session.user_id,
         },
       });
   
       if (!taskData) {
-        res.status(404).json({ message: 'Unable to change status!' });
+        res.status(404).json({ message: 'Unable to volunteer for task!' });
         return;
       }
   
@@ -85,17 +125,17 @@ router.get('/:name', async (req, res) => {
     }
   });
   
-  //delete task by name
-  router.delete('/:name',async (req, res) => {
+  //delete task by id
+  router.delete('/:id',async (req, res) => {
     try {
       const taskData = await Task.destroy({
         where: {
-          id: req.params.name,
+          id: req.params.id,
         },
       });
   
       if (!taskData) {
-        res.status(404).json({ message: 'No task found with that name!' });
+        res.status(404).json({ message: 'No task found with that id!' });
         return;
       }
   
