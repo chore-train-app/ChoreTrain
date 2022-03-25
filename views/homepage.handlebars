@@ -1,31 +1,92 @@
- <!-- LOGIN/LOGOUT/CREATE ACCOUNT PAGE // BELOW FOR MOBILE-->
-    <div>
-        <h1 class="custom-h1">Task Train</h1>
+<!-- LOGIN/LOGOUT/CREATE ACCOUNT PAGE // BELOW FOR MOBILE-->
+<div>
+  <h1 class="custom-h1">Task Train</h1>
 
-        <form class="custom-form">
-            <div class="row">
-                <div>
-                    <label class="signup">Username
-                        <input type="text" placeholder="Username">
-                    </label>
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <label class="signup">Password
-                        <input type="text" placeholder="password">
-                    </label>
-                </div>
-            </div>
-            <div class="row">
-                <button class="expanded secondary login-button" href="#">LOGIN</button>
-            </div>
-        </form>
-
-        <div class="row custom-form">
-            <div class="cell text-center ">
-                <button class="hollow button secondary" data-open="newaccount" href="#">+ Create New Account</button>
-            </div>
-        </div>
-        <img style="width: 10%; height: 10%" src="./images/train.png" class="logo-center" alt="train logo">
+  <form class="custom-form login-form">
+    <div class="row">
+      <div>
+        <label class="signup">Username
+          <input id="login-username" type="text" placeholder="Username" />
+        </label>
+      </div>
     </div>
+    <div class="row">
+      <div>
+        <label class="signup">Password
+          <input id="login-password" type="password" placeholder="password" />
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <button
+        type="submit"
+        class="expanded secondary button login-button"
+        href="#"
+      >LOGIN</button>
+    </div>
+  </form>
+
+  <div class="row custom-form">
+    <div class="cell text-center">
+      <button class="hollow button secondary" data-open="newaccount" href="#">+
+        Create New Account</button>
+    </div>
+  </div>
+  <img
+    style="width: 10%; height: 10%"
+    src="./images/train.png"
+    class="logo-center"
+    alt="train logo"
+  />
+</div>
+<script src="./js/login.js"></script>
+
+<div class="reveal" id="newaccount" data-reveal>
+  <h2>Create New User</h2>
+  <form class="signup-form">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <label>Username</label>
+        <input id="signup-username" type="text" placeholder="Username" />
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <label>Email</label>
+        <input id="signup-email" type="text" placeholder="Email" />
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <label>Zip</label>
+        <input
+          id="signup-zip"
+          type="text"
+          placeholder="Enter your five digit zip"
+        />
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <label>Password</label>
+        <input id="signup-password" type="password" placeholder="Password" />
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <button type="submit" class="hollow button secondary" href="#">Create
+          Account</button>
+      </div>
+    </div>
+  </form>
+
+  <button
+    class="close-button"
+    data-close
+    aria-label="Close modal"
+    type="button"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<script src="./js/signup.js"></script>

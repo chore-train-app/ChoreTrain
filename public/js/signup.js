@@ -3,19 +3,19 @@
     event.preventDefault();
 
     const username = document.querySelector('#signup-username').value.trim();
-    const email = document.querySelector('#signup-password').value.trim();
-    const password = document.querySelector('#signup-email').value.trim();
-    const zip = document.querySelector('#signup-zip')
+    const email = document.querySelector('#signup-email').value.trim();
+    const password = document.querySelector('#signup-password').value.trim();
+    const zip_code = document.querySelector('#signup-zip').value.trim();
 
-    if (username && email && password && zip) {
+    if (username && email && password && zip_code) {
         const response = await fetch ('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ username, email, password}),
+            body: JSON.stringify({ username, email, zip_code, password}),
             headers: { 'Content-Type': 'application/json'},
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
