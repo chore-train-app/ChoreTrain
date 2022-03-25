@@ -18,7 +18,7 @@
 </head>
 
 <body>
-{{!-- Nav will only show if user is logged in --}}
+    {{!-- Nav will only show if user is logged in --}}
     {{#if logged_in}}
     <header>
         <h1 class="custom-h1">Task Train</h1>
@@ -37,10 +37,21 @@
     </header>
     {{/if}}
 
-    
+
 
     {{{body}}}
 
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
     <script src="js/chat.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
