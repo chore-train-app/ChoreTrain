@@ -1,0 +1,51 @@
+{{!-- View dashboard after logging in --}}
+
+<div class="grid-x profile">
+    <div class="cell ">
+        <h3 class="custom-h3">Welcome, {{name}}</h3>
+    </div>
+</div>
+
+{{#if tasks.length}}
+    <div class="grid-x profile">
+        <table class="unstriped">
+            <thead>
+            <tr>
+                <th width="80%"><h4 class="table-h4">Upcoming Tasks</h4></th>
+                <th width="20%"><h4 class="table-h4">Details</h4></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><p class="custom-p">{{task.title}}</p></td>
+                <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{{/if}}
+
+<div class="grid-x profile">
+    <div class="cell ">
+        <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
+    </div>
+</div>
+
+{{#if tasks.length}}
+    <div class="grid-x profile">
+        <table class="unstriped">
+            <thead>
+                <tr>
+                    <th width="80%"><h4 class="table-h4">List of Tasks I Need Help With</h4></th>
+                    <th width="20%"><h4 class="table-h4">Details</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="custom-p">{{task.title}}</p></td>
+                    <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{{/if}}

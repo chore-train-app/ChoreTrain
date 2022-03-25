@@ -1,0 +1,36 @@
+{{!-- View local Tasks available at ZIP --}}
+
+<div class="grid-x profile">
+    <div class="cell ">
+        <h3 class="custom-h3">All Available Tasks at ZIP</h3>
+    </div>
+</div>
+
+<div class="grid-x profile">
+    <table class="unstriped">
+        <thead>
+            <tr>
+                <th width="60%">
+                    <h4 class="table-h4">Tasks</h4>
+                </th>
+                <th width="20%">
+                    <h4 class="table-h4">When</h4>
+                </th>
+                <th width="20%">
+                    <h4 class="table-h4">Volunteer?</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p class="custom-p">{{task.title}}</p>
+                </td>
+                <td>
+                    <p>MM/DD/YY @ TIME {{date}}</p>
+                </td>
+                <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
