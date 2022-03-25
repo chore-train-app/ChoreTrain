@@ -36,7 +36,7 @@ router.get('/:id', withAuth, async (req, res) => {
     }
   });
 
-  //get tasks by Creator
+  //get tasks by taker
   router.get('/taker/:taskTaker', withAuth, async (req, res) => {
     try {
       const taskData = await Task.findByPk(req.params.taskTaker, {
@@ -52,10 +52,11 @@ router.get('/:id', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
-
+  
+  //find tasks by zipCode
   router.get('/zipCode/:zipCode', withAuth, async (req, res) => {
     try {
-      const taskData = await Task.findByPk(req.params.zipCode, {
+      const taskData = await Task.findByPk(req.params.zip_code, {
         include: [{ model: User }],
       });
   

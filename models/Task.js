@@ -45,7 +45,7 @@ Task.init(
         key: 'id',
       },
     },
-    zipCode: {
+    zip_code: {
       type:DataTypes.INTEGER,
       allowNull:false,
     },
