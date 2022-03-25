@@ -86,7 +86,9 @@ input {
 
 button,
 select {
-  text-transform: none; }
+  text-transform: none; 
+  cursor: pointer;
+}
 
 button,
 [type="button"],
