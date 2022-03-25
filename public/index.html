@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/foundation.css">
     <link rel="stylesheet" href="./css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Megrim&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
@@ -283,7 +284,7 @@
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <label>Date</label>
-                    <input type="text" placeholder="date range" />
+                    <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
@@ -319,7 +320,12 @@
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-
+    <script>
+        flatpickr("#datetime", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+        </script>
 </body>
 
 
