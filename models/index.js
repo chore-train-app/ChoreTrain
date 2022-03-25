@@ -2,7 +2,7 @@ const Task = require("./Task");
 const User = require("./User");
 
 User.hasMany(Task, {
-  foreignKey: "trainCreator",
+  foreignKey: "taskCreator",
   onDelete: "CASCADE",
 });
 

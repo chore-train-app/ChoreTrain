@@ -28,23 +28,32 @@ Task.init(
       allowNull: true,
     },
     taskCreator: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       foreignKey: true,
       allowNull: true,
       references: {
         model: 'user',
-        key: 'username',
+        key: 'id',
       },
     },
     taskTaker: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       foreignKey: true,
       allowNull: true,
       references: {
         model: 'user',
-        key: 'username',
+        key: 'id',
       },
     },
+    zipCode: {
+      type:DataTypes.INTEGER,
+      allowNull:false,
+    },
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    }
   },
   {
     sequelize,
