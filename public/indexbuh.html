@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/foundation.css">
     <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Megrim&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
     <title>Task Train</title>
 </head>
 
@@ -284,7 +286,7 @@
             <div class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <label>Date</label>
-                    <input type="text" placeholder="date range" />
+                    <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
                 </div>
             </div>
             <div class="grid-x grid-padding-x">
@@ -334,11 +336,26 @@
         }
     </script>
 
-    <script src="js/chat.js"></script>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script src="js/chat.js"></script>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.js"></script>
+<script src="js/app.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.datetimepicker.js"></script>
+<script src="/path/to/cdn/jquery.slim.min.js"></script>
+<script src="/path/to/cdn/bootstrap.min.js"></script>
+<script src="/path/to/cdn/popper.min.js"></script>
+<script src="/path/to/cdn/moment.min.js"></script>
+<script src="bootstrap-datetimepicker.min.js"></script>
+<script>
+flatpickr("#datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+});
+</script>
 
 </body>
 

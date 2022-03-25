@@ -2,11 +2,11 @@
 
 <div class="grid-x profile">
     <div class="cell ">
-        <h3 class="custom-h3">Welcome, {{name}}</h3>
+        <h3 class="custom-h3">Welcome, {{username}}</h3>
     </div>
 </div>
 
-{{#if tasks.length}}
+{{#if task.length}}
     <div class="grid-x profile">
         <table class="unstriped">
             <thead>
@@ -30,6 +30,38 @@
         <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
     </div>
 </div>
+<div class="reveal" id="new-task" data-reveal>
+        <h2>Create New Task</h2>
+        <form>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Title of Task</label>
+                    <input type="text" placeholder="Task" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Date & Time</label>
+                    <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+                    <label>Description
+                        <textarea placeholder="Post Content"></textarea>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <button class="hollow button secondary" href="#">Create Task</button>
+            </div>
+        </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
 {{#if tasks.length}}
     <div class="grid-x profile">

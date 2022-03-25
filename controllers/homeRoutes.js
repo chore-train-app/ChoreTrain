@@ -12,25 +12,27 @@
 //   }
 // });
 
-const router = require('express').Router();
-const { User } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { User } = require("../models");
+const withAuth = require("../utils/auth");
 
-// Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
-  if (!req.session.logged_in) {
-    res.render('homepage')
+router.get("/", async (req, res) => {
+  if (req.session.logged_in) {
+    res.render("dashboard", {
+      logged_in: req.session.logged_in,
+    });
+  } else {
+    res.render("homepage");
   }
 });
 
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
+router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;
