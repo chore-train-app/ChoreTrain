@@ -8,7 +8,7 @@ const taskdata = [
     endTime: 'April 21, 2022 08:00:00',
     taskCreator: 1,
     taskTaker: 2,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
   {
@@ -18,7 +18,7 @@ const taskdata = [
     endTime: 'April 7, 2022 010:00:00',
     taskCreator: 5,
     taskTaker: 3,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
   {
@@ -28,7 +28,7 @@ const taskdata = [
     endTime: 'April 9, 2022 13:00:00',
     taskCreator: 4,
     taskTaker: 5,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
   {
@@ -38,7 +38,7 @@ const taskdata = [
     endTime: 'April 1, 2022 12:00:00',
     taskCreator: 2,
     taskTaker: 3,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
   {
@@ -48,7 +48,7 @@ const taskdata = [
     endTime: 'April 29, 2022 15:00:00',
     taskCreator: 8,
     taskTaker: 6,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
   {
@@ -58,7 +58,7 @@ const taskdata = [
     endTime: 'April 2, 2022 9:00:00',
     taskCreator: 9,
     taskTaker: 10,
-    zipCode: 92109,
+    zip_code: 92109,
     status: false,
   },
 ];
