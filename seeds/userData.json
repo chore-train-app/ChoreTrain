@@ -1,0 +1,72 @@
+[
+    {
+      "id": "1",
+      "username": "Sal",
+      "email": "sal@hotmail.com",
+      "password": "password12345",
+      "zipCode" : "92109"
+    },
+    {
+        "id": "2",
+        "username": "Bob",
+        "email": "bob@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "3",
+        "username": "Sally",
+        "email": "sally@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "4",
+        "username": "Kelly",
+        "email": "kelly@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "5",
+        "username": "Jim",
+        "email": "jim@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "6",
+        "username": "Jill",
+        "email": "Jill@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "7",
+        "username": "Meg",
+        "email": "meg@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "8",
+        "username": "Jan",
+        "email": "jan@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "9",
+        "username": "Peter",
+        "email": "peter@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    },
+    {
+        "id": "10",
+        "username": "Frank",
+        "email": "frank@hotmail.com",
+        "password": "password12345",
+        "zipCode" : "92109"
+    }
+  ]
