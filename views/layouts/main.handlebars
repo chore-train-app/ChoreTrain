@@ -20,27 +20,24 @@
 <body>
     {{!-- Nav will only show if user is logged in --}}
     {{#if logged_in}}
-    <header>
-        <h1 class="custom-h1">Task Train</h1>
-        <nav id="hamNav">
+        <header>
+            <h1 class="custom-h1">Task Train</h1>
+            <nav id="hamNav">
 
-            <label for="hamburger">&#9776;</label>
-            <input type="checkbox" id="hamburger" />
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger" />
 
 
-            <div id="hamItems">
-                <a href="#">DASHBOARD</a>
-                <a href="#">TASKS</a>
-                <a href="#">LOGOUT</a>
-            </div>
-        </nav>
-    </header>
+                <div id="hamItems">
+                    <a href="#">DASHBOARD</a>
+                    <a href="#">TASKS</a>
+                    <a href="#">LOGOUT</a>
+                </div>
+            </nav>
+        </header>
     {{/if}}
 
-
-
     {{{body}}}
-
 
     <script>
         function myFunction() {
@@ -52,6 +49,7 @@
             }
         }
     </script>
+    
     <script src="js/chat.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
