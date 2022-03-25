@@ -35,7 +35,7 @@ User.init(
         len: [8],
       },
     },
-    zipCode: {
+    zip_code: {
       type:DataTypes.INTEGER,
       allowNull:false,
     },

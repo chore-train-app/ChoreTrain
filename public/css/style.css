@@ -74,6 +74,7 @@ header {
     padding: 10px;
     width: 100%;
     border-width: medium;
+    cursor:pointer;
 }
 
 .create-button {
