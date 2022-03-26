@@ -68,7 +68,7 @@ const taskdata = [
     endTime: 'April 2, 2022 9:00:00',
     taskCreator: 9,
     taskTaker: 10,
-    zip_code: 92109,
+    zip_code: 92128,
     status: false,
   },
 ];
