@@ -2,32 +2,32 @@
 
 <div class="reveal" id="task-details" data-reveal>
     {{#each tasks as |task| }}
-    <h4>{{task.name}}
+    <h4>{{title}}
     </h4>
-    <h5>Created by: {{ task.taskCreator}}</h5>
-    <p>{{ task.startTime}} to {{task.endTime}}</p>
-    <p>{{task.description}}</p>
+    <h5>Created by: {{ taskCreator}}</h5>
+    <p>{{ format_time task.startTime}} to {{ format_time task.endTime}}</p>
+    <p>{{description}}</p>
 
     <div class="cell">
         <button class="hollow button success" data-open="task-details" href="#">Volunteer for this task!
         </button>
     </div>
 
-
+{{#if createdTasks }}
     <div class="cell">
-        <p>if session user == task owner</p>
         <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
         </button>
         <button class="hollow button secondary" data-open="task-details" href="#">Edit Task
         </button>
     </div>
+{{/if}}
 
+{{#if takenTasks}}
     <div class="cell">
-        <p>if session user == task taker</p>
         <button class="hollow button secondary" data-open="task-details" href="#">Cancel
         </button>
     </div>
-
+{{/if}}
     <div class="cell">
         <p>Comment Section - to be added</p>
     </div>
