@@ -12,7 +12,6 @@ router.get('/:id', withAuth, async (req, res) => {
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that ID!' });
         return;
-
       }
     
       res.status(200).json(taskData);
@@ -24,21 +23,13 @@ router.get('/:id', withAuth, async (req, res) => {
   //get tasks by Creator
   router.get('/creator/:taskCreator', withAuth, async (req, res) => {
     try {
-      const taskData = await Task.findByPk(req.params.taskCreator, {
-        include: [{ model: User }],
-      });
+      const taskData = await Task.findAll(req.params.taskCreator);
   
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that user!' });
         return;
       }
 
-      const tasks = taskData.map((task) => task.get ({plain: true}));
-
-      res.render('dashboard', {
-        tasks, 
-        logged_in: req.session.logged_in
-      });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -47,9 +38,7 @@ router.get('/:id', withAuth, async (req, res) => {
   //get tasks by taker
   router.get('/taker/:taskTaker', async (req, res) => {
     try {
-      const taskData = await Task.findByPk(req.params.taskTaker, {
-        include: [{ model: User }],
-      });
+      const taskData = await Task.findAll(req.params.taskTaker);
   
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that user!' });
@@ -96,18 +85,17 @@ router.get('/:id', withAuth, async (req, res) => {
     }
   });
   
-  //update task id (through taskCreator)
+  //update task by id (through taskCreator)
   router.put('/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.update(req.body,{
         where: {
-          taskCreator: req.params.taskCreator,
-          user_id: req.session.user_id,
+          taskCreator: req.session.user_id,
         },
       });
   
       if (!taskData) {
-        res.status(404).json({ message: 'No user found with that name!' });
+        res.status(404).json({ message: 'Unable to edit this task!' });
         return;
       }
   
@@ -117,13 +105,33 @@ router.get('/:id', withAuth, async (req, res) => {
     }
   });
 
-  //update task id (through taskTaker)
-  router.put('/volunteer/:id', withAuth, async (req, res) => {
+  //Volunteer for task (through taskTaker)
+  router.put('/Volunteer/:id', withAuth, async (req, res) => {
     try {
-      const taskData = await Task.update(req.body,{
+      const taskData = await Task.update({
+        status: true,
+        taskTaker: req.session.user_id,
+      });
+  
+      if (!taskData) {
+        res.status(404).json({ message: 'Unable to volunteer for task!' });
+        return;
+      }
+  
+      res.status(200).json(taskData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  //Cancel Volunteering for task (through taskTaker)
+  router.put('/VolunteerCancel/:id', withAuth, async (req, res) => {
+    try {
+      const taskData = await Task.update({
+        status: false,
+      },{
         where: {
-          taskTaker: req.params.taskTaker,
-          user_id: req.session.user_id,
+          taskTaker: req.session.user_id,
         },
       });
   
@@ -143,7 +151,7 @@ router.get('/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.destroy({
         where: {
-          id: req.params.id,
+          taskCreator: req.session.user_id,
         },
       });
   
@@ -158,4 +166,22 @@ router.get('/:id', withAuth, async (req, res) => {
     }
   });
   
+  //update comment
+  router.put('/:id', async (req, res) => {
+    try {
+      const taskData = await Task.update({
+        comment: req.body,
+      });
+  
+      if (!taskData) {
+        res.status(404).json({ message: 'Unable to comment on this task!' });
+        return;
+      }
+  
+      res.status(200).json(taskData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
   module.exports = router;

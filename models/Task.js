@@ -53,6 +53,12 @@ Task.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
+    },
+    comment: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      nest: true,
+      raw: true,
     }
   },
   {
