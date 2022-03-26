@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
+  
   //log in
   router.post('/login', async (req, res) => {
     try {
