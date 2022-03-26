@@ -1,17 +1,16 @@
 const logoutHandler = async (event) => {
   event.preventDefault();
 
-  const response = await fetch("api/users/login", {
+  const response = await fetch("api/users/logout", {
     method: "POST",
-    body: JSON.stringify({ username, password }),
     headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
     document.location.replace("/");
   } else {
-    alert("Unable to log in");
+    alert("User is not logged in");
   }
 };
 
-document.querySelector(".login-form").addEventListener("submit", loginHandler);
+document.querySelector("#logout").addEventListener("click", logoutHandler);
