@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get one task by id
+//get one task by id 
 router.get('/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.findByPk(req.params.id, {
@@ -12,7 +12,9 @@ router.get('/:id', withAuth, async (req, res) => {
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that ID!' });
         return;
+
       }
+    
       res.status(200).json(taskData);
     } catch (err) {
       res.status(500).json(err);
@@ -30,14 +32,20 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(404).json({ message: 'No task found with that user!' });
         return;
       }
-      res.status(200).json(taskData);
+
+      const tasks = taskData.map((task) => task.get ({plain: true}));
+
+      res.render('dashboard', {
+        tasks, 
+        logged_in: req.session.logged_in
+      });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
   //get tasks by taker
-  router.get('/taker/:taskTaker', withAuth, async (req, res) => {
+  router.get('/taker/:taskTaker', async (req, res) => {
     try {
       const taskData = await Task.findByPk(req.params.taskTaker, {
         include: [{ model: User }],
@@ -54,11 +62,15 @@ router.get('/:id', withAuth, async (req, res) => {
   });
   
   //find tasks by zipCode
+  // Jesse: I tried messing with the code to show the localTasks handlebars
+  // i'm sure i'm doing it wrong haha
   router.get('/zipCode/:zipCode', withAuth, async (req, res) => {
     try {
       const taskData = await Task.findByPk(req.params.zip_code, {
         include: [{ model: User }],
-      });
+      },
+      res.render('localTasks', taskData)
+      );
   
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that zipcode!' });

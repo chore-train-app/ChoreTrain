@@ -1,5 +1,5 @@
 {{!-- View local Tasks available at ZIP --}}
-
+{{#if loggin_in}}
 <div class="grid-x profile">
     <div class="cell ">
         <h3 class="custom-h3">All Available Tasks at {{zip_code}}</h3>
@@ -34,3 +34,4 @@
         </tbody>
     </table>
 </div>
+{{/if}}

@@ -1,29 +1,39 @@
 {{!-- View dashboard after logging in --}}
+{{#if logged_in }}
+    {{> taskDetails this }}
+{{/if}}
 
 <div class="grid-x profile">
     <div class="cell ">
-        <h3 class="custom-h3">Welcome, {{username}}</h3>
+        <h3 class="custom-h3">Welcome, {{ username }}</h3>
     </div>
 </div>
 
-{{#if task.length}}
-    <div class="grid-x profile">
-        <table class="unstriped">
-            <thead>
+<div class="grid-x profile">
+    <table class="unstriped">
+        <thead>
             <tr>
-                <th width="80%"><h4 class="table-h4">Upcoming Tasks</h4></th>
-                <th width="20%"><h4 class="table-h4">Details</h4></th>
+                <th width="80%">
+                    <h4 class="table-h4">Upcoming Tasks</h4>
+                </th>
+                <th width="20%">
+                    <h4 class="table-h4">Details</h4>
+                </th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
+            {{#if tasks.length}}
             <tr>
-                <td><p class="custom-p">{{task.title}}</p></td>
+                <td>
+                    <p class="custom-p">{{tasks.title}}</p>
+                </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
-            </tbody>
-        </table>
-    </div>
-{{/if}}
+            {{/if}}
+        </tbody>
+    </table>
+</div>
+
 
 <div class="grid-x profile">
     <div class="cell ">
@@ -31,59 +41,65 @@
     </div>
 </div>
 <div class="reveal" id="new-task" data-reveal>
-        <h2>Create New Task</h2>
-        <form>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Title of Task</label>
-                    <input type="text" placeholder="Task" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Start Date & Time</label>
-                    <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>End Date & Time</label>
-                    <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Description
-                        <textarea placeholder="Post Content"></textarea>
-                    </label>
-                </div>
-            </div>
-        </form>
+    <h2>Create New Task</h2>
+    <form>
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
-                <button class="hollow button secondary" href="#">Create Task</button>
+                <label>Title of Task</label>
+                <input type="text" placeholder="Task" />
             </div>
         </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label>Start Date & Time</label>
+                <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+            </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label>End Date & Time</label>
+                <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+            </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+                <label>Description
+                    <textarea placeholder="Post Content"></textarea>
+                </label>
+            </div>
+        </div>
+    </form>
+    <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+            <button class="hollow button secondary" href="#">Create Task</button>
+        </div>
     </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 {{#if tasks.length}}
-    <div class="grid-x profile">
-        <table class="unstriped">
-            <thead>
-                <tr>
-                    <th width="80%"><h4 class="table-h4">List of Tasks I Need Help With</h4></th>
-                    <th width="20%"><h4 class="table-h4">Details</h4></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><p class="custom-p">{{task.title}}</p></td>
-                    <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="grid-x profile">
+    <table class="unstriped">
+        <thead>
+            <tr>
+                <th width="80%">
+                    <h4 class="table-h4">List of Tasks I Need Help With</h4>
+                </th>
+                <th width="20%">
+                    <h4 class="table-h4">Details</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p class="custom-p">{{task.title}}</p>
+                </td>
+                <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 {{/if}}
