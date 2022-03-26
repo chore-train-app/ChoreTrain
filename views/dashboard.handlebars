@@ -1,4 +1,4 @@
-{{!-- View dashboard after logging in
+{{!-- View dashboard after logging in--}}
   {{#each tasks as |task| }}
 {{#if logged_in }}
     {{> taskDetails this }}
@@ -23,10 +23,10 @@
             </tr>
         </thead>
         <tbody>
-            {{#if tasks.length}}
+            {{#if takenTasks }}
             <tr>
                 <td>
-                    <p class="custom-p">{{tasks.title}}</p>
+                    <p class="custom-p">{{title}}</p>
                 </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
@@ -80,7 +80,7 @@
     </button>
 </div>
 
-{{#if tasks.length}}
+
 <div class="grid-x profile">
     <table class="unstriped">
         <thead>
@@ -94,13 +94,14 @@
             </tr>
         </thead>
         <tbody>
+            {{#if createdTasks}}
             <tr>
                 <td>
-                    <p class="custom-p">{{task.title}}</p>
+                    <p class="custom-p">{{title}}</p>
                 </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
+            {{/}}
         </tbody>
     </table>
 </div>
-{{/if}} --}}
