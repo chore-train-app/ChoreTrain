@@ -17,7 +17,7 @@
                     <h4 class="table-h4">When</h4>
                 </th>
                 <th width="20%">
-                    <h4 class="table-h4">Volunteer?</h4>
+                    <h4 class="table-h4">View Details</h4>
                 </th>
             </tr>
         </thead>
@@ -27,9 +27,9 @@
                     <p class="custom-p">{{task.title}}</p>
                 </td>
                 <td>
-                    <p>MM/DD/YY @ TIME {{date}}</p>
+                    <p>{{format_time task.startTime}}</p>
                 </td>
-                <td><a href="#" class="button hollow secondary expanded table-button">Sign Up</a></td>
+                <td><a href="#" class="button hollow secondary expanded table-button">Details</a></td>
             </tr>
         </tbody>
     </table>
