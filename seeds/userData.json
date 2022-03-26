@@ -53,7 +53,7 @@
         "username": "Jan",
         "email": "jan@hotmail.com",
         "password": "password12345",
-        "zip_code" : "92128"
+        "zip_code" : "92109"
     },
     {
         "id": "9",
@@ -67,6 +67,6 @@
         "username": "Frank",
         "email": "frank@hotmail.com",
         "password": "password12345",
-        "zip_code" : "92128"
+        "zip_code" : "92109"
     }
   ]
