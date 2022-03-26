@@ -2,6 +2,22 @@ const router = require('express').Router();
 const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+
+
+router.get('/alltasks', async (req, res) => {
+  try {
+    const taskData = await Task.findAll()
+    const tasks = taskData.map((task) => task.get ({plain: true}))
+    res.render('localTasks', {
+      tasks,
+      logged_in: req.session.logged_in
+    })
+  } catch(err) {
+res.status(500).json(err)
+  }
+})
+
 //get one task by id 
 router.get('/:id', withAuth, async (req, res) => {
     try {

@@ -13,4 +13,10 @@ const logoutHandler = async (event) => {
   }
 };
 
+const getTasks = async (event) => {
+  event.preventDefault();
+  document.location.replace("/api/tasks/alltasks");
+};
+
 document.querySelector("#logout").addEventListener("click", logoutHandler);
+document.querySelector("#tasks").addEventListener("click", getTasks);
