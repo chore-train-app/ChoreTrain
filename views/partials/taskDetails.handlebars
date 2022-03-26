@@ -1,0 +1,67 @@
+{{!-- Commented out for modal testing--}}
+{{#each tasks}}
+
+<div class="reveal" id="task-details" data-reveal>
+    <h4>{{task.name}} 
+
+        {{!-- {{#if_eq task.status == true}}
+        {{{get_emoji}}} {{!--Generate Emoji if Claimed --}}
+        {{/if}} --}}
+    </h4>
+    <h5>Created by: {{ task.taskCreator}}</h5>
+    <p>{{ format_time task.startTime}} to {{ format_time task.endTime}}</p>
+    <p>{{task.description}}</p>
+
+
+    {{#if_eq task.status == false}}
+    <div class="cell">
+        <button class="hollow button success" data-open="task-details" href="#">Volunteer for this task!
+        </button>
+    </div>
+    {{/if_eq}}
+{{/each}}
+
+
+    <div class="cell">
+        <p>if session user == task owner</p>
+        <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
+        </button>
+        <button class="hollow button secondary" data-open="task-details" href="#">Edit Task
+        </button>
+    </div>
+
+    <div class="cell">
+        <p>if session user == task taker</p>
+        <button class="hollow button secondary" data-open="task-details" href="#">Cancel
+        </button>
+    </div>
+
+    <div class="cell">
+        <p>Comment Section - to be added</p>
+    </div>
+
+    <div class="cell">
+        <p>Add to calendar - optional</p>
+    </div>
+
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+Chat box
+<div class="grid-x profile">
+    <div class=" cell container">
+        <form>
+            <div class="form-group">
+                <textarea class="form-control status-box" rows="3" placeholder="Enter your comment here..."></textarea>
+            </div>
+        </form>
+        <div class="button-group pull-right" style="cursor: pointer;">
+            <a class="btn btn-primary button secondary hollow">Post</a>
+        </div>
+        <ul class="posts">
+        </ul>
+    </div>
+</div>
