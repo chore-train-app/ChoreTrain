@@ -1,22 +1,25 @@
-{{!-- Commented out for modal testing
-
-<div class="grid-x profile">
-    <div class="cell ">
-        <button class="hollow button secondary" data-open="task-details" href="#">View Task Details: To Be linked to
-            each task</button>
-    </div>
-</div>
+{{!-- Commented out for modal testing--}}
+{{#each tasks as |task|}}
 
 <div class="reveal" id="task-details" data-reveal>
-    <h4>Walk My Dog</h4>
-    <h5>Created by: John Smith</h5>
-    <p>April 2, 2022 at 10 am</p>
-    <p>I've just had surgery and would need someone to help me take the dog out for a walk. </p>
+    <h4>{{task.name}} {{#if_eq user == taskTaker}}
 
-    <div class="cell"><p>if task is unclaimed</p>
-        <button class="hollow button secondary" data-open="task-details" href="#">Volunteer for this task!
+        {{#if_eq task.status == true}}
+        {{{get_emoji}}}        {{!--Generate Emoji if Claimed --}}
+        {{/if}}
+{{/if}}</h4> 
+    <h5>Created by: {{ task.taskCreator}}</h5>
+    <p>{{ format_time task.startTime}} to {{ format_time task.endTime}}</p>
+    <p>{{task.description}}</p>
+
+
+{{#if_eq task.status == false}}
+    <div class="cell">
+        <button class="hollow button success" data-open="task-details" href="#">Volunteer for this task!
         </button>
-    </div>
+    </div>{{/if}}
+{{/each}}
+
 
     <div class="cell"><p>if session user == task owner</p>
         <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
@@ -58,4 +61,3 @@ Chat box
         </ul>
     </div>
 </div>
- --}}
