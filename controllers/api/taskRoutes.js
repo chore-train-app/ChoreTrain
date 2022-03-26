@@ -106,11 +106,11 @@ router.get('/:id', withAuth, async (req, res) => {
   });
 
   //update task id (through taskTaker)
-  router.put('/:id', withAuth, async (req, res) => {
+  router.put('/volunteer/:id', withAuth, async (req, res) => {
     try {
       const taskData = await Task.update(req.body,{
         where: {
-          taskCreator: req.params.taskCreator,
+          taskTaker: req.params.taskTaker,
           user_id: req.session.user_id,
         },
       });
