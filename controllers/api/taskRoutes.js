@@ -12,10 +12,9 @@ router.get('/:id', withAuth, async (req, res) => {
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that ID!' });
         return;
-  
-      }
 
-      
+      }
+    
       res.status(200).json(taskData);
     } catch (err) {
       res.status(500).json(err);
