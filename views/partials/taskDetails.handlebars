@@ -1,21 +1,19 @@
 {{!-- Commented out for modal testing--}}
 
-<div class="reveal" id="task-details" data-reveal>
-    {{#each tasks as |task| }}
     <h4>
-        <span id="edit-field-{{task.id}}">
-            {{title}}
+        <span id="edit-field-{{this.id}}">
+            {{this.name}}
             {{#if takenTasks}}
             {{{get_emoji}}}
             {{/if}}
         </span>
     </h4>
-    <h5>Created by: {{ taskCreator}}</h5>
-    <p>{{ format_time startTime}} to {{ format_time endTime}}</p>
-    <p>{{description}}</p>
+    <h5>Created by: {{ this.taskCreator}}</h5>
+    <p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
+    <p>{{this.description}}</p>
 
     <div class="cell">
-        <button type="submit" class="hollow button success volunteer-task" data-open="task-details" href="#">Volunteer
+        <button type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">Volunteer
             for this task!
         </button>
     </div>
@@ -44,17 +42,7 @@
         </button>
     </div>
     {{/if}}
-    <div class="cell">
-        <p>Comment Section - to be added</p>
-    </div>
-
-    <div class="cell">
-        <p>Add to calendar - optional</p>
-    </div>
-
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
+    
 
     <div class="grid-x profile">
         <div class=" cell container">
@@ -71,5 +59,3 @@
             </ul>
         </div>
     </div>
-    {{/each}}
-</div>

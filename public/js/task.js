@@ -95,6 +95,6 @@ const delButtonHandler = async (event) => {
 // document
 //   .querySelector('.delete-task')
 //   .addEventListener('submit', delButtonHandler);
-document
-  .querySelector(".create-task-form")
-  .addEventListener("submit", newTaskFormHandler);
+// document
+//   .querySelector(".create-task-form")
+//   .addEventListener("submit", newTaskFormHandler);

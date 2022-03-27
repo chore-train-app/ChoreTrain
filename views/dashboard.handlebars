@@ -1,3 +1,5 @@
+<script src="./js/homepage.js"></script>
+
 <div class="grid-x profile">
     <div class="cell ">
         <h3 class="custom-h3">Welcome, {{ username }}</h3>
@@ -18,14 +20,22 @@
         </thead>
         <tbody>
            
-          {{#each takenTasks as |task| }}
+        {{#each takenTasks as |task| }}
             <tr>
                 <td>
                     <p class="custom-p">{{this.name}}</p>
                 </td>
-                <td><a href="/api/tasks/{{this.id}}" class="button hollow secondary expanded table-button">View</a></td>
+                <td><a data-open="view-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
-            {{/each}}
+          
+            <div class="reveal" id="view-task-details-{{this.id}}" data-reveal>
+                  {{>taskDetails}}
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        {{/each}}
         </tbody>
     </table>
 </div>
@@ -33,44 +43,13 @@
 
 <div class="grid-x profile">
     <div class="cell ">
-        <button class="hollow button secondary" data-open="new-task" href="#">Create New Task</button>
+        <button class="hollow button secondary new-task-button" data-open="new-task" href="#">Create New Task</button>
     </div>
 </div>
 <div class="reveal" id="new-task" data-reveal>
-    <h2>Create New Task</h2>
-    <form class="create-task-form">
-        <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Title of Task</label>
-                    <input class="new-task-name" type="text" placeholder="Update Task Title" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Start Date and Time</label>
-                    <input class="new-task-start" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>End Date and Time</label>
-                    <input class="new-task-end" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-                <div class="large-12 cell">
-                    <label>Description
-                        <textarea class="new-task-desc" placeholder="Description"></textarea>
-                    </label>
-                </div>
-            </div> 
-            <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <button type="submit" class="hollow button secondary" href="#">Create Task</button>
-        </div>
-    </div>
-    </form>
    
+    {{!-- {{>(modalContent)}} --}}
+    {{>createTask}}
     <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -95,8 +74,21 @@
                 <td>
                     <p class="custom-p">{{this.name}}</p>
                 </td>
-                <td><a href="/api/tasks/{{this.id}}" class="button hollow secondary expanded table-button">View</a></td>
+                <td><a id="view-task-details-{{this.id}}" class="button hollow secondary expanded table-button">View</a></td>
+                </tr>
+            <tr>
+                <td>
+                    <p class="custom-p">{{this.name}}</p>
+                </td>
+                <td><a data-open="my-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
+          
+            <div class="reveal" id="my-task-details-{{this.id}}" data-reveal>
+                  {{>taskDetails}}
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             {{/each}}
 
         </tbody>
