@@ -5,7 +5,7 @@ const { Op } = require("sequelize");
 const { create } = require("../models/Task");
 
 router.get("/", async (req, res) => {
-  if (req.session.logged_in) {
+  try {
     const userData = await User.findOne({where: {id: req.session.user_id}})
     const username = userData.dataValues.username
     const taskData = await Task.findAll({
@@ -32,8 +32,8 @@ router.get("/", async (req, res) => {
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
-  } else {
-    res.render("homepage");
+  } catch(err) {
+    res.render('homepage')
   }
 });
 

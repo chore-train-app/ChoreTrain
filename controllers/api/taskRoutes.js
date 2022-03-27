@@ -19,6 +19,25 @@ res.status(500).json(err)
   }
 })
 
+router.get('/zip_code/:92109', withAuth, async (req, res) => {
+  try {
+    const taskData = await Task.findAll({
+      where: {
+        zip_code: req.session.zip_code,
+      }
+    })
+    const tasks = taskData.map((task) => task.get ({plain: true}))
+    res.render('localTasks', {
+      tasks,
+      logged_in: req.session.logged_in,
+      include: [{model : User}],
+    })
+  } catch(err) {
+res.status(500).json(err)
+  }
+})
+
+
 //get one task by id 
 router.get('/:id', withAuth, async (req, res) => {
     try {
@@ -94,10 +113,13 @@ router.get('/:id', withAuth, async (req, res) => {
       const newTask = await Task.create({
         ...req.body,
         taskCreator: req.session.user_id,
+        zip_code: req.session.zip_code,
       });
-  
+      
       res.status(200).json(newTask);
     } catch (err) {
+      console.log(err)
+      console.log(req.body)
       res.status(400).json(err);
     }
   });

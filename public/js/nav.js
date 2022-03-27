@@ -15,7 +15,7 @@ const logoutHandler = async (event) => {
   
   const getTasks = async (event) => {
     event.preventDefault();
-    document.location.replace("/api/tasks/alltasks");
+    document.location.replace(`/api/tasks/zip_code/92109`);
   };
   
   document.querySelector("#logout").addEventListener("click", logoutHandler);
