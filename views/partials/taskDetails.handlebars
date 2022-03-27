@@ -2,13 +2,19 @@
 
 <div class="reveal" id="task-details" data-reveal>
     {{#each tasks as |task| }}
-    <h4><span id="edit-field-{{task.id}}">{{title}}</span></h4>
+    <h4>
+        <span id="edit-field-{{task.id}}">
+            {{title}}
+            {{#if takenTasks}}
+            {{{get_emoji}}}
+            {{/if}}
+        </span></h4>
     <h5>Created by: {{ taskCreator}}</h5>
     <p>{{ format_time startTime}} to {{ format_time endTime}}</p>
     <p>{{description}}</p>
 
     <div class="cell">
-        <button class="hollow button success" data-open="task-details" href="#">Volunteer for this task!
+        <button type="submit" class="hollow button success" data-open="task-details" href="#">Volunteer for this task!
         </button>
     </div>
 
