@@ -19,6 +19,26 @@ res.status(500).json(err)
   }
 })
 
+//get all in zip code.
+router.get('/zip_code', withAuth, async (req, res) => {
+  try {
+    const taskData = await Task.findAll({
+      where: {
+        zip_code: req.session.zip_code,
+      }
+    })
+    const tasks = taskData.map((task) => task.get ({plain: true}))
+    res.render('localTasks', {
+      tasks,
+      logged_in: req.session.logged_in,
+      include: [{model : User}],
+    })
+  } catch(err) {
+res.status(500).json(err)
+  }
+})
+
+
 //get one task by id 
 router.get('/:id', withAuth, async (req, res) => {
     try {
@@ -59,27 +79,6 @@ router.get('/:id', withAuth, async (req, res) => {
   
       if (!taskData) {
         res.status(404).json({ message: 'No task found with that user!' });
-        return;
-      }
-      res.status(200).json(taskData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
-  //find tasks by zipCode
-  // Jesse: I tried messing with the code to show the localTasks handlebars
-  // i'm sure i'm doing it wrong haha
-  router.get('/zipCode/:zipCode', withAuth, async (req, res) => {
-    try {
-      const taskData = await Task.findByPk(req.params.zip_code, {
-        include: [{ model: User }],
-      },
-      res.render('localTasks', taskData)
-      );
-  
-      if (!taskData) {
-        res.status(404).json({ message: 'No task found with that zipcode!' });
         return;
       }
       res.status(200).json(taskData);
