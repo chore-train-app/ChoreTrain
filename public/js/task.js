@@ -28,7 +28,18 @@ const newTaskFormHandler = async (event) =>{
     }
 }
 
+const volunteerHandler = async (event) => {
+    event.preventDefault();
 
+    const response = await fetch (`api/tasks/volunteer/${id}`, { 
+        method: 'PUT',
+    })
+    if (response.ok) {
+        document.location.update(`/api/tasks/volunteer/${id}`);
+    } else {
+        alert('Unable to volunteer.')
+    } 
+};
 
 // UPDATE TASK
 const updateFormHandler = async (event) => {
@@ -71,6 +82,10 @@ const delButtonHandler = async (event) => {
         }
     }
 };
+
+document
+    .querySelector('.volunteer-task')
+    .addEventListener('submit', volunteerHandler)
 
 document
     .querySelector('.update-task')
