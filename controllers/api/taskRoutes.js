@@ -93,6 +93,7 @@ router.get('/:id', withAuth, async (req, res) => {
       const newTask = await Task.create({
         ...req.body,
         taskCreator: req.session.user_id,
+        zip_code: req.session.zip_code,
       });
   
       res.status(200).json(newTask);
