@@ -46,7 +46,7 @@ Task.init(
       },
     },
     zip_code: {
-      type:DataTypes.STRING,
+      type:DataTypes.INTEGER,
       allowNull:false,
     },
     status: {

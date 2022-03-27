@@ -19,6 +19,7 @@ res.status(500).json(err)
   }
 })
 
+//get all in zip code.
 router.get('/zip_code', withAuth, async (req, res) => {
   try {
     const taskData = await Task.findAll({
@@ -92,13 +93,10 @@ router.get('/:id', withAuth, async (req, res) => {
       const newTask = await Task.create({
         ...req.body,
         taskCreator: req.session.user_id,
-        zip_code: req.session.zip_code,
       });
-      
+  
       res.status(200).json(newTask);
     } catch (err) {
-      console.log(err)
-      console.log(req.body)
       res.status(400).json(err);
     }
   });
