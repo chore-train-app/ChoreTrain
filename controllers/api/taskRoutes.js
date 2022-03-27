@@ -90,6 +90,7 @@ res.status(500).json(err)
         ...req.body,
         taskCreator: req.session.user_id,
         zip_code: req.session.zip_code,
+        include: [{model : User}],
       });
   
       res.status(200).json(newTask);
