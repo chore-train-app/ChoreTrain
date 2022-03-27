@@ -25,6 +25,7 @@ router.get('/zip_code', withAuth, async (req, res) => {
     const taskData = await Task.findAll({
       where: {
         zip_code: req.session.zip_code,
+        status:false,
       }
     })
     const tasks = taskData.map((task) => task.get ({plain: true}))
