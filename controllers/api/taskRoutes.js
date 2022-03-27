@@ -38,24 +38,19 @@ res.status(500).json(err)
   }
 })
 
-
-//get one task by id 
+  //get task by id
 router.get('/:id', withAuth, async (req, res) => {
-    try {
-      const taskData = await Task.findByPk(req.params.id, {
-        include: [{ model: User }],
-      });
-  
-      if (!taskData) {
-        res.status(404).json({ message: 'No task found with that ID!' });
-        return;
-      }
-    const task = taskData.map((task) => task.get ({plain: true}))
-      res.render('/')
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+  try {
+    const taskData = await Task.findByPk(req.params.id)
+    res.render('taskDetails', {
+      taskData,
+      logged_in: req.session.logged_in,
+      include: [{model : User}],
+    })
+  } catch(err) {
+res.status(500).json(err)
+  }
+})
   
   //get tasks by Creator
   router.get('/creator/:taskCreator', withAuth, async (req, res) => {
