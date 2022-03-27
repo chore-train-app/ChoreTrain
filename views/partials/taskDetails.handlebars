@@ -2,10 +2,9 @@
 
 <div class="reveal" id="task-details" data-reveal>
     {{#each tasks as |task| }}
-    <h4>{{title}}
-    </h4>
+    <h4><span id="edit-field-{{task.id}}">{{title}}</span></h4>
     <h5>Created by: {{ taskCreator}}</h5>
-    <p>{{ format_time task.startTime}} to {{ format_time task.endTime}}</p>
+    <p>{{ format_time startTime}} to {{ format_time endTime}}</p>
     <p>{{description}}</p>
 
     <div class="cell">
