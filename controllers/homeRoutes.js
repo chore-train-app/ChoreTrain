@@ -1,17 +1,3 @@
-// const router = require("express").Router();
-// const { User } = require('../models')
-
-// router.get("/", async (req, res) => {
-//   try {
-//     res.render("homepage", {
-//       loggedIn: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 const router = require("express").Router();
 const { User, Task } = require("../models");
 const withAuth = require("../utils/auth");

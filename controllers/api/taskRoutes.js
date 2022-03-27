@@ -1,17 +1,18 @@
 const router = require('express').Router();
 const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+// const formatTime = require('../../utils/helpers')
 
 
 
-
-router.get('/alltasks', async (req, res) => {
+router.get('/alltasks', withAuth, async (req, res) => {
   try {
     const taskData = await Task.findAll()
     const tasks = taskData.map((task) => task.get ({plain: true}))
     res.render('localTasks', {
       tasks,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      include: [{model : User}],
     })
   } catch(err) {
 res.status(500).json(err)
@@ -29,8 +30,8 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(404).json({ message: 'No task found with that ID!' });
         return;
       }
-    
-      res.status(200).json(taskData);
+    const task = taskData.map((task) => task.get ({plain: true}))
+      res.render('/')
     } catch (err) {
       res.status(500).json(err);
     }

@@ -1,9 +1,3 @@
-{{!-- View dashboard after logging in--}}
-  {{#each tasks as |task| }}
-{{#if logged_in }}
-    {{> taskDetails this }}
-{{/if}}
-
 <div class="grid-x profile">
     <div class="cell ">
         <h3 class="custom-h3">Welcome, {{ username }}</h3>
@@ -23,14 +17,15 @@
             </tr>
         </thead>
         <tbody>
-            {{#if takenTasks }}
+           
+          {{#each takenTasks as |task| }}
             <tr>
                 <td>
-                    <p class="custom-p">{{title}}</p>
+                    <p class="custom-p">{{this.name}}</p>
                 </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
-            {{/if}}
+            {{/each}}
         </tbody>
     </table>
 </div>
@@ -43,29 +38,29 @@
 </div>
 <div class="reveal" id="new-task" data-reveal>
     <h2>Create New Task</h2>
-    <form>
+    <form id="create-task-form">
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
                 <label>Title of Task</label>
-                <input type="text" placeholder="Task" />
+                <input id="new-task-name" type="text" placeholder="Task" />
             </div>
         </div>
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
                 <label>Start Date & Time</label>
-                <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+                <input id="new-task-start" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
             </div>
         </div>
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
                 <label>End Date & Time</label>
-                <input type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+                <input id="new-task-end" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
             </div>
         </div>
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell">
                 <label>Description
-                    <textarea placeholder="Post Content"></textarea>
+                    <textarea id="new-task-desc" placeholder="Post Content"></textarea>
                 </label>
             </div>
         </div>
@@ -94,14 +89,15 @@
             </tr>
         </thead>
         <tbody>
-            {{#if createdTasks}}
+            {{#each createdTasks}}
             <tr>
                 <td>
-                    <p class="custom-p">{{title}}</p>
+                    <p class="custom-p">{{this.name}}</p>
                 </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
-            {{/}}
+            {{/each}}
+
         </tbody>
     </table>
 </div>

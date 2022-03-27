@@ -1,12 +1,10 @@
-{{!-- View local Tasks available at ZIP --}}
-  {{#each tasks as |task| }}
-{{#if loggin_in}}
+{{#if logged_in}}
 <div class="grid-x profile">
     <div class="cell ">
         <h3 class="custom-h3">All Available Tasks at ZIP</h3>
     </div>
 </div>
-
+{{!-- {{format_time task.startTime}} --}}
 <div class="grid-x profile">
     <table class="unstriped">
         <thead>
@@ -23,15 +21,17 @@
             </tr>
         </thead>
         <tbody>
+            {{#each tasks as |task|}}
             <tr>
                 <td>
-                    <p class="custom-p">{{task.title}}</p>
+                    <p class="custom-p">{{this.name}}</p>
                 </td>
                 <td>
-                    <p>{{format_time task.startTime}}</p>
+                    <p>{{this.startTime}}</p>
                 </td>
                 <td><a href="#" class="button hollow secondary expanded table-button">Details</a></td>
             </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

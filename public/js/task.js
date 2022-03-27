@@ -3,6 +3,30 @@
 // event listener for updating  a task X 
 // event listener for cancelling a task: removing status to false, and remove "taskTaker" user variable from the user
 
+// CREATE TASK
+const newTaskFormHandler = async (event) =>{
+    event.preventDefault();
+
+    const name = document.querySelector('#new-task-name').value.trim();
+    const startTime = document.querySelector('#new-task-start').value.trim();
+    const endTime = document.querySelector('#new-task-end').value.trim();
+    const description = document.querySelector('#new-task-desc').value.trim();
+
+    if(name && startTime && endTime && description) {
+        const response = await fetch('api/tasks', {
+            method: 'POST',
+            body: JSON.stringify({name, startTime, endTime, description}),
+            headers: {
+                'Content-Type':'application/json',
+            },
+        });
+        if (response.ok) {
+            document.location.update(`/api/tasks/${response.id}`)
+        } else {
+            alert('Failed to post task.')
+        }
+    }
+}
 
 
 
@@ -24,7 +48,7 @@ const updateFormHandler = async (event) => {
             },
         });
         if (response.ok) {
-            document.location.update('/tasks/${id}');
+            document.location.update(`/api/tasks/${id}`);
         } else {
             alert('Failed to update task.')
         }
