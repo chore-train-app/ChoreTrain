@@ -2542,10 +2542,10 @@ code, .code-inline {
     color: #04211f; }
   .button.warning, .button.warning.disabled, .button.warning[disabled], .button.warning.disabled:hover, .button.warning[disabled]:hover, .button.warning.disabled:focus, .button.warning[disabled]:focus {
     background-color: #ffae00;
-    color: #0a0a0a; }
+    color: #04211f; }
   .button.warning:hover, .button.warning:focus {
     background-color: #cc8b00;
-    color: #0a0a0a; }
+    color: #04211f; }
   .button.alert, .button.alert.disabled, .button.alert[disabled], .button.alert.disabled:hover, .button.alert[disabled]:hover, .button.alert.disabled:focus, .button.alert[disabled]:focus {
     background-color: #cc4b37;
     color: #fefefe; }
