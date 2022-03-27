@@ -8,31 +8,42 @@
             {{#if takenTasks}}
             {{{get_emoji}}}
             {{/if}}
-        </span></h4>
+        </span>
+    </h4>
     <h5>Created by: {{ taskCreator}}</h5>
     <p>{{ format_time startTime}} to {{ format_time endTime}}</p>
     <p>{{description}}</p>
 
     <div class="cell">
-        <button type="submit" class="hollow button success volunteer-task" data-open="task-details" href="#">Volunteer for this task!
+        <button type="submit" class="hollow button success volunteer-task" data-open="task-details" href="#">Volunteer
+            for this task!
         </button>
     </div>
+    
+{{!--OPTIONAL--}}
+    <div title="Add to Calendar" class="addeventatc">
+        Add to Calendar
+        <span class="start">{{ format_time startTime}}</span>
+        <span class="end">{{ format_time endTime}}</span>
+        <span class="title">{{title}}</span>
+        <span class="description">{{description}}</span>
+    </div>
 
-{{#if createdTasks }}
+    {{#if createdTasks }}
     <div class="cell">
         <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
         </button>
         <button class="hollow button secondary" data-open="task-details" href="#">Edit Task
         </button>
     </div>
-{{/if}}
+    {{/if}}
 
-{{#if takenTasks}}
+    {{#if takenTasks}}
     <div class="cell">
         <button class="hollow button secondary" data-open="task-details" href="#">Cancel
         </button>
     </div>
-{{/if}}
+    {{/if}}
     <div class="cell">
         <p>Comment Section - to be added</p>
     </div>
