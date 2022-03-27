@@ -33,7 +33,7 @@ Task.init(
       allowNull: true,
       references: {
         model: 'user',
-        key: 'id',
+        key: ('id', 'username'),
       },
     },
     taskTaker: {
@@ -42,7 +42,7 @@ Task.init(
       allowNull: true,
       references: {
         model: 'user',
-        key: 'id',
+        key: ('id', 'username'),
       },
     },
     zip_code: {
