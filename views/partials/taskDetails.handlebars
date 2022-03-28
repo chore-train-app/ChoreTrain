@@ -3,12 +3,11 @@
     <h4>
         <span id="edit-field-{{this.id}}">
             {{this.name}}
-            {{#if takenTasks}}
-            {{{get_emoji}}}
-            {{/if}}
+            {{{get_emoji this.status}}}
+
         </span>
     </h4>
-    <h5>Created by: {{ this.taskCreator}}</h5>
+    <h5>Created by: {{ this.username}}</h5>
     <p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
     <p>{{this.description}}</p>
 
@@ -38,7 +37,7 @@
 
     {{#if takenTasks}}
     <div class="cell">
-        <button class="hollow button secondary" data-open="task-details" href="#">Cancel
+        <button id="cancel-task" sclass="hollow button secondary" type="submit" data-open="task-details" href="#">Cancel
         </button>
     </div>
     {{/if}}

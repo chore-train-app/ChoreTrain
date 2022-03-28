@@ -74,10 +74,10 @@
                 <td>
                     <p class="custom-p">{{this.name}}</p>
                 </td>
-                <td><a data-open="my-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
+                <td><a data-open="task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
           
-            <div class="reveal" id="my-task-details-{{this.id}}" data-reveal>
+            <div class="reveal" id="task-details-{{this.id}}" data-reveal>
                   {{>taskDetails}}
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>

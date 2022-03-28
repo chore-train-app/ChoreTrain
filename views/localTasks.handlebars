@@ -1,7 +1,8 @@
-{{#if logged_in}}
 <div class="grid-x profile">
     <div class="cell ">
-        <h3 class="custom-h3">All Available Tasks at ZIP</h3>
+        
+        <h3 class="custom-h3">All Available Tasks at {{#with tasks as |task|}}{{ task.zip_code }} {{/with}}</h3>
+        
     </div>
 </div>
 {{!-- {{format_time task.startTime}} --}}
@@ -29,10 +30,18 @@
                 <td>
                     <p>{{format_time this.startTime}}</p>
                 </td>
-                <td><a href="#" class="button hollow secondary expanded table-button">Details</a></td>
+                <td><a data-open="task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
+
+             <div class="reveal" id="task-details-{{this.id}}" data-reveal>
+                  {{>taskDetails}}
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             {{/each}}
+            
         </tbody>
     </table>
 </div>
-{{/if}}
+           

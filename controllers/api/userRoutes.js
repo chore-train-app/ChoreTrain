@@ -11,6 +11,7 @@ router.post('/', async (req, res) => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
         req.session.zip_code = userData.zip_code;
+        req.session.username = userData.username;
         res.status(200).json(userData);
       });
     } catch (err) {
@@ -43,6 +44,7 @@ router.post('/', async (req, res) => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
         req.session.zip_code = userData.zip_code;
+        req.session.username = userData.username;
 
         res.json({ user: userData, message: 'You are now logged in!' });
       });
