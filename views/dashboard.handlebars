@@ -1,8 +1,7 @@
 
-
 <div class="grid-x profile">
     <div class="cell ">
-        <h3 class="custom-h3">Welcome, {{ username }}</h3>
+        <h3 class="custom-h3">Welcome, {{ username }} </h3>
     </div>
 </div>
 
@@ -54,7 +53,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<script src="./js/task.js"></script>
+
 
 <div class="grid-x profile">
     <table class="unstriped">
@@ -74,17 +73,17 @@
                 <td>
                     <p class="custom-p">{{this.name}}</p>
                 </td>
-                <td><a data-open="task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
+                <td><a data-open="my-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
             </tr>
           
-            <div class="reveal" id="task-details-{{this.id}}" data-reveal>
+            <div class="reveal" id="my-task-details-{{this.id}}" data-reveal>
                   {{>taskDetails}}
                 <button class="close-button" data-close aria-label="Close modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             {{/each}}
-            <script src="./js/homepage.js"></script>
+           
         </tbody>
     </table>
 </div>

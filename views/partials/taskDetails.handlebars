@@ -2,7 +2,7 @@
 
     <h4>
         <span id="edit-field-{{this.id}}">
-            {{this.name}}
+            {{this.name}} 
             {{{get_emoji this.status}}}
 
         </span>
@@ -26,7 +26,7 @@
         <span class="description">{{this.description}}</span>
     </div>
 
-    {{#if createdTasks }}
+    {{#if (if_eq @root/user_id this.taskCreator)}}
     <div class="cell">
         <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
         </button>
@@ -35,9 +35,10 @@
     </div>
     {{/if}}
 
-    {{#if takenTasks}}
+
+    {{#if (if_eq @root/user_id this.taskTaker)}}
     <div class="cell">
-        <button id="cancel-task" sclass="hollow button secondary" type="submit" data-open="task-details" href="#">Cancel
+        <button id="cancel-task" class="hollow button secondary" type="submit" data-open="task-details" href="#">Cancel
         </button>
     </div>
     {{/if}}
@@ -63,3 +64,4 @@
     button.addEventListener('click', volunteerHandler);
  });
 </script>
+

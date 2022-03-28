@@ -1,6 +1,9 @@
-Handlebars.registerPartial("createTask", Handlebars.templates["createTask"]);
-Handlebars.registerPartial("editTask", Handlebars.templates["editTask"]);
-Handlebars.registerPartial("viewTask", Handlebars.templates["taskDetails"]);
+// Handlebars.registerPartial("createTask", Handlebars.templates["createTask"]);
+// Handlebars.registerPartial("editTask", Handlebars.templates["editTask"]);
+// Handlebars.registerPartial("viewTask", Handlebars.templates["taskDetails"]);
+// Handlebars.registerHelper("ifEquals", function (arg1, arg2) {
+//   return arg1 == arg2;
+// });
 
 // const createTask = false;
 // const editTask = false;
@@ -24,4 +27,3 @@ Handlebars.registerPartial("viewTask", Handlebars.templates["taskDetails"]);
 //   createTask = true;
 //   console.log(createTask);
 // });
-
