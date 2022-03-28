@@ -31,12 +31,16 @@ const newTaskFormHandler = async (event) => {
 
 const volunteerHandler = async (event) => {
   event.preventDefault();
-
-  const response = await fetch(`api/tasks/volunteer/${id}`, {
+  console.log(event.target.id);
+  const response = await fetch("/api/tasks/volunteer/" + event.target.id, {
     method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   if (response.ok) {
-    document.location.update(`/api/tasks/volunteer/${id}`);
+    alert("Volunteered!");
+    document.location.replace("/");
   } else {
     alert("Unable to volunteer.");
   }
@@ -84,10 +88,13 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// document
-//     .querySelector('.volunteer-task')
-//     .addEventListener('submit', volunteerHandler)
-
+// const volunteerBtns = document.getElementsByClassName("volunteer-task");
+// console.log(volunteerBtns.length);
+// for (let i = 0; i < volunteerBtns.length; i++) {
+//   volunteerBtns[i].addEventListener("click", volunteerHandler);
+// }
+const qvb = document.querySelectorAll('.volunteer-task')
+console.log(qvb.length);
 // document
 //     .querySelector('.update-task')
 //     .addEventListener('submit', updateHandler)
@@ -95,6 +102,7 @@ const delButtonHandler = async (event) => {
 // document
 //   .querySelector('.delete-task')
 //   .addEventListener('submit', delButtonHandler);
+
 // document
 //   .querySelector(".create-task-form")
 //   .addEventListener("submit", newTaskFormHandler);

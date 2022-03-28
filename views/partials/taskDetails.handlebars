@@ -13,7 +13,7 @@
     <p>{{this.description}}</p>
 
     <div class="cell">
-        <button type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">Volunteer
+        <button id='{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">Volunteer
             for this task!
         </button>
     </div>
@@ -21,10 +21,10 @@
 {{!--OPTIONAL--}}
     <div title="Add to Calendar" class="addeventatc">
         Add to Calendar
-        <span class="start">{{ format_time startTime}}</span>
-        <span class="end">{{ format_time endTime}}</span>
-        <span class="title">{{title}}</span>
-        <span class="description">{{description}}</span>
+        <span class="start">{{ format_time this.startTime}}</span>
+        <span class="end">{{ format_time this.endTime}}</span>
+        <span class="title">{{this.name}}</span>
+        <span class="description">{{this.description}}</span>
     </div>
 
     {{#if createdTasks }}
@@ -59,3 +59,8 @@
             </ul>
         </div>
     </div>
+<script>
+ document.querySelectorAll('.volunteer-task').forEach((button) => {
+    button.addEventListener('click', volunteerHandler);
+ });
+</script>

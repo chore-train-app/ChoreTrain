@@ -24,3 +24,4 @@ document.querySelector(".new-task-button").addEventListener("click", () => {
   createTask = true;
   console.log(createTask);
 });
+

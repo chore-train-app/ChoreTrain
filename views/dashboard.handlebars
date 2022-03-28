@@ -1,4 +1,4 @@
-<script src="./js/homepage.js"></script>
+
 
 <div class="grid-x profile">
     <div class="cell ">
@@ -69,13 +69,7 @@
             </tr>
         </thead>
         <tbody>
-            {{#each createdTasks}}
-            <tr>
-                <td>
-                    <p class="custom-p">{{this.name}}</p>
-                </td>
-                <td><a id="view-task-details-{{this.id}}" class="button hollow secondary expanded table-button">View</a></td>
-                </tr>
+            {{#each createdTasks as |task|}}
             <tr>
                 <td>
                     <p class="custom-p">{{this.name}}</p>
@@ -90,7 +84,7 @@
                 </button>
             </div>
             {{/each}}
-
+            <script src="./js/homepage.js"></script>
         </tbody>
     </table>
 </div>
