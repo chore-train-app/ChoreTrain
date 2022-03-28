@@ -5,7 +5,7 @@ Task Train is a nifty application that makes it easier for users to ask for help
 
 Do you need help? Just sign into Task Train and create an online Task for others to view. Need someone to walk your dog? A user within the specified zipcode can apply to help you with your task. 
 
-Do you want to help? Just sign in and search for tasks in your zip code. Available tasks will be easy to view, just click sign up!
+Do you want to help? Just sign in and search for tasks in your zip code. Available tasks will be easy to view, just click sign up! 
 
 ## Table of Contents
 * [Installation](#installation)
