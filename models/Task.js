@@ -54,11 +54,9 @@ Task.init(
       allowNull: false,
       defaultValue: false,
     },
-    comment: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      nest: true,
-      raw: true,
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
