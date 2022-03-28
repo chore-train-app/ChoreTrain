@@ -1,5 +1,5 @@
-const { Model, DataTypes, DATE} = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes, DATE } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Task extends Model {}
 
@@ -9,7 +9,7 @@ Task.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -17,11 +17,11 @@ Task.init(
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     startTime: {
       type: DataTypes.DATE,
-      allowNull:false
+      allowNull: false,
     },
     endTime: {
       type: DataTypes.DATE,
@@ -29,11 +29,11 @@ Task.init(
     },
     taskCreator: {
       type: DataTypes.INTEGER,
-      foreignKey: true,
       allowNull: true,
+      foreignKey: true,
       references: {
-        model: 'user',
-        key: ('id', 'username'),
+        model: "User",
+        key: "id",
       },
     },
     taskTaker: {
@@ -41,13 +41,13 @@ Task.init(
       foreignKey: true,
       allowNull: true,
       references: {
-        model: 'user',
-        key: ('id', 'username'),
+        model: "user",
+        key: "id",
       },
     },
     zip_code: {
-      type:DataTypes.INTEGER,
-      allowNull:false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     status: {
       type: DataTypes.BOOLEAN,
@@ -59,14 +59,14 @@ Task.init(
       allowNull: true,
       nest: true,
       raw: true,
-    }
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'task',
+    modelName: "task",
   }
 );
 

@@ -88,13 +88,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// const volunteerBtns = document.getElementsByClassName("volunteer-task");
-// console.log(volunteerBtns.length);
-// for (let i = 0; i < volunteerBtns.length; i++) {
-//   volunteerBtns[i].addEventListener("click", volunteerHandler);
-// }
-const qvb = document.querySelectorAll('.volunteer-task')
-console.log(qvb.length);
 // document
 //     .querySelector('.update-task')
 //     .addEventListener('submit', updateHandler)
@@ -103,6 +96,6 @@ console.log(qvb.length);
 //   .querySelector('.delete-task')
 //   .addEventListener('submit', delButtonHandler);
 
-// document
-//   .querySelector(".create-task-form")
-//   .addEventListener("submit", newTaskFormHandler);
+document
+  .querySelector(".create-task-form")
+  .addEventListener("submit", newTaskFormHandler);
