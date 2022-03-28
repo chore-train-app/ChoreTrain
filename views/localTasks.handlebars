@@ -1,7 +1,9 @@
 {{#if logged_in}}
 <div class="grid-x profile">
     <div class="cell ">
-        <h3 class="custom-h3">All Available Tasks at ZIP</h3>
+        {{#with tasks as |task|}}
+        <h3 class="custom-h3">All Available Tasks at {{ task.zip_code }}</h3>
+        {{/with}}
     </div>
 </div>
 {{!-- {{format_time task.startTime}} --}}
