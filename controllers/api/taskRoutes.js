@@ -131,9 +131,10 @@ res.status(500).json(err)
         res.status(404).json({ message: 'Unable to volunteer for task!' });
         return;
       }
-  
-      res.status(200).json(taskData);
+      alert('You have volunteered for this task!')
+      res.status(200).render('/');
     } catch (err) {
+      alert('You fucked up.')
       res.status(500).json(err);
     }
   });
