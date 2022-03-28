@@ -27,9 +27,9 @@ Use the password you use for your MySQL login as the `DB_PASSWORD`.
 
 After creating the .env file, source the database by first running `mysql -u root -p`. Enter your password then input the following command: `source db/schema.sql;`
 
-After adding the database, run the seeds for the database by running `npm run seed`. If the following command doesn't work, you can also use `node seeds/index.js`
+After adding the database, run the seeds for the database by running `npm run seed` (or `node seeds/index.js` if the command did not work).
 
-Finally, run the server to being the application by using `npm start` (or `node server.js` if the following did not work).
+Finally, run the server by using `npm start` (or `node server.js` if the command did not work).
 
 
 ## Usage
