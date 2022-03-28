@@ -13,7 +13,7 @@ Do you want to help? Just sign in and search for tasks in your zip code. Availab
 * [Technologies Used](#technologies-used)
 
 ## Installation
-To install, begin by `git cloning` this [repo](https://github.com/chore-train-app/ChoreTrain). After cloning, type `npm install` into the terminal in order to install the necessary technologies needed to run the application. 
+In order for the user to use the application on their own , begin by `git cloning` this [repo](https://github.com/chore-train-app/ChoreTrain). After cloning, type `npm install` into the terminal in order to install the necessary technologies needed to run the application. 
 
 Next, create an `.env` file to access the database. Add and edit the following to your `.env` file:
 
@@ -37,20 +37,25 @@ Once the server is running, the user can access the page by running `http://loca
 
 The first page the user will see is the login page. The user may create a new account by clicking the `Create an Account` button. 
 
-After signing in, the user will be on the dashboard. On the dashboard, the user will be able to view any tasks they have already signed up for, any tasks that the user created, and a "create a task" button. 
+After signing in, the user will be on the dashboard. On the dashboard, the user will be able to view upcoming tasks they have signed up for, a list of tasks that the user needs help with, and a "Create New Task" button. 
 
-To view a more detailed view of a specific task, the user can click on the task name to open a modal with a detailed view. 
+To look at a more detailed view of a specific task, the user can click on the View button to open a modal with a detailed view. The detailed view will show the task name, name of the task creator, start and end date, and description. The option to add the task to the user's calendar and a chat box is also visible on the modal. If the user is the creator of the tasks, they will be able to edit or delete the task they created. If the user is viewing a detailed task from the "Task" page, they will be given the option to `Volunteer` for the task (and will also be able to undo their `Volunteer`)
 
-To create a task, the user can click the `Create a Task` button 
-
-To find more tasks to do, the user can click on `Tasks` on the navbar to be led to a page showing available tasks in the zip code area. 
+To find available tasks in the user's zip code, the user can go to the `Tasks` link in the navigation bar. The user will be able to see All Available Tasks and their name, due date, and details modal link.
 
 Once the user is done with the application, the user may logout of their profile by clicking the `logout` button at the top right of the page. The page will also log the user out after a delayed period of time. 
 
-![gif of working app]()
+## Screenshot of Login Page and Dashboard
+![screenshot of login page](/public/images/loginScreenshot.png)
+
+![screenshot of dashboard](/public/images/dashboardScreenshot.png)
+
+## Link to deployed application
+* Before installing the application, the user can test Task Train by going to the deployed version on [Heroku](https://task-train.herokuapp.com/).
 
 ## Technologies Used
-* New technology - Foundation CSS Framework
+* Foundation CSS Framework
+* flatpickr
 * Express
 * Handlebars
 * bcrypt
