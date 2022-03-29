@@ -77,13 +77,13 @@ const openTaskEditor = (event) => {
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Start Date and Time</label>
-              <input class="update-start-time" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+              <input class="update-start-time" type="text" name="datetime" id="datetime" placeholder="${event.target.dataset.start}" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>End Date and Time</label>
-              <input class="update-end-time" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+              <input class="update-end-time" type="text" name="datetime" id="datetime" placeholder="${event.target.dataset.end}" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
