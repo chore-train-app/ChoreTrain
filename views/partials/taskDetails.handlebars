@@ -11,7 +11,7 @@
 
 
 {{!-- Volunteer Button --}}
-{{#unless (if_eq @root/user_id this.taskCreator)}}
+{{#unless (if_or (if_eq @root/user_id this.taskCreator) (if_eq @root/user_id this.taskTaker))}}
 <div class="cell">
     <button id='volunteer_{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
         Volunteer for this task!
@@ -49,6 +49,7 @@
     <span class="description">{{this.description}}</span>
 </div>
 
+{{#unless status}}
 {{!-- Chat box --}}
 <div class="grid-x profile">
     <div class="cell container">
@@ -69,4 +70,4 @@
         </ul>
     </div>
 </div>
-
+{{/unless}}
