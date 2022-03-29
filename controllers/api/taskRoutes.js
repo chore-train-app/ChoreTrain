@@ -31,7 +31,9 @@ router.get('/zip_code', withAuth, async (req, res) => {
     const tasks = taskData.map((task) => task.get ({plain: true}))
     res.render('localTasks', {
       tasks,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in,
+      zip_code: req.session.zip_code,
       include: [{model : User}],
     })
   } catch(err) {
@@ -132,10 +134,8 @@ res.status(500).json(err)
         res.status(404).json({ message: 'Unable to volunteer for task!' });
         return;
       }
-      alert('You have volunteered for this task!')
       res.status(200).render('/');
     } catch (err) {
-      alert('You fucked up.')
       res.status(500).json(err);
     }
   });

@@ -29,34 +29,21 @@ const newTaskFormHandler = async (event) => {
   }
 };
 
-// VOLUNTEER FOR TASK
-const volunteerHandler = async (event) => {
-  event.preventDefault();
-  console.log(event.target.id);
-  const response = await fetch("/api/tasks/volunteer/" + event.target.id, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if (response.ok) {
-    alert("Volunteered!");
-    document.location.replace("/");
-  } else {
-    alert("Unable to volunteer.");
-  }
-};
+
 
 //CANCEL TASK
 const cancelHandler = async (event) => {
   event.preventDefault();
   console.log(event.target.id);
-  const response = await fetch("/api/tasks/VolunteerCancel/" + event.target.id, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    "/api/tasks/VolunteerCancel/" + event.target.id,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (response.ok) {
     alert("Canceled!");
     document.location.replace("/");
@@ -64,7 +51,6 @@ const cancelHandler = async (event) => {
     alert("Unable to cancel this task.");
   }
 };
-
 
 // UPDATE TASK
 const updateFormHandler = async (event) => {
@@ -108,6 +94,9 @@ const delButtonHandler = async (event) => {
   }
 };
 
+
+
+
 // document
 //     .querySelector('.update-task')
 //     .addEventListener('submit', updateHandler)
@@ -121,5 +110,7 @@ document
   .addEventListener("submit", newTaskFormHandler);
 
 document
-    .querySelector('#cancel-task')
-    .addEventListener('submit', cancelHandler);
+  .querySelector("#cancel-task")
+  .addEventListener("submit", cancelHandler);
+
+
