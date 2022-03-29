@@ -174,6 +174,7 @@ res.status(500).json(err)
       const taskData = await Task.destroy({
         where: {
           taskCreator: req.session.user_id,
+          id: req.params.id,
         },
       });
   
