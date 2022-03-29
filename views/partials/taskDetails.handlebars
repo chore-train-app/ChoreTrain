@@ -1,67 +1,74 @@
-{{!-- Commented out for modal testing--}}
+{{!-- Detailed task modal --}}
+<h4>
+    <span id="edit-field-{{this.id}}">
+        {{this.name}} 
+        {{{get_emoji this.status}}}
+    </span>
+</h4>
+<h5>Created by: {{ this.username}}</h5>
+<p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
+<p>{{this.description}}</p>
 
-    <h4>
-        <span id="edit-field-{{this.id}}">
-            {{this.name}} 
-            {{{get_emoji this.status}}}
+{{!-- Volunteer Button --}}
+<div class="cell">
+    <button id='{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
+        Volunteer for this task!
+    </button>
+</div>
 
-        </span>
-    </h4>
-    <h5>Created by: {{ this.username}}</h5>
-    <p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
-    <p>{{this.description}}</p>
+{{!-- Edit and Delete Buttons --}}
+{{#if (if_eq @root/user_id this.taskCreator)}}
+<div class="cell">
+    <button class="hollow button secondary" data-open="task-details" href="#">
+        Edit Task
+    </button>
+    <button class="hollow button secondary" data-open="task-details" href="#">
+        Delete Task
+    </button>
+</div>
+{{/if}}
 
-    <div class="cell">
-        <button id='{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">Volunteer
-            for this task!
-        </button>
-    </div>
-    
-{{!--OPTIONAL--}}
-    <div title="Add to Calendar" class="addeventatc">
-        Add to Calendar
-        <span class="start">{{ format_time this.startTime}}</span>
-        <span class="end">{{ format_time this.endTime}}</span>
-        <span class="title">{{this.name}}</span>
-        <span class="description">{{this.description}}</span>
-    </div>
+{{!-- Cancel Button --}}
+{{#if (if_eq @root/user_id this.taskTaker)}}
+<div class="cell">
+    <button id="cancel-task" class="hollow button secondary" type="submit" data-open="task-details" href="#">
+        Cancel
+    </button>
+</div>
+{{/if}}
 
-    {{#if (if_eq @root/user_id this.taskCreator)}}
-    <div class="cell">
-        <button class="hollow button secondary" data-open="task-details" href="#">Delete Task
-        </button>
-        <button class="hollow button secondary" data-open="task-details" href="#">Edit Task
-        </button>
-    </div>
-    {{/if}}
+{{!--Add to Calendar button--}}
+<div title="Add to Calendar" class="addeventatc">
+    Add to Calendar
+    <span class="start">{{ format_time this.startTime}}</span>
+    <span class="end">{{ format_time this.endTime}}</span>
+    <span class="title">{{this.name}}</span>
+    <span class="description">{{this.description}}</span>
+</div>
 
-
-    {{#if (if_eq @root/user_id this.taskTaker)}}
-    <div class="cell">
-        <button id="cancel-task" class="hollow button secondary" type="submit" data-open="task-details" href="#">Cancel
-        </button>
-    </div>
-    {{/if}}
-    
-
-    <div class="grid-x profile">
-        <div class=" cell container">
-            <form>
-                <div class="form-group">
-                    <textarea class="form-control status-box" rows="3"
-                        placeholder="Enter your comment here..."></textarea>
-                </div>
-            </form>
-            <div class="button-group pull-right" style="cursor: pointer;">
-                <a class="btn btn-primary button secondary hollow">Post</a>
+{{!-- Chat box --}}
+<div class="grid-x profile">
+    <div class="cell container">
+        <form>
+            <label>
+                Chat box
+            </label>
+            <div class="form-group">
+                <textarea class="form-control status-box" rows="3" placeholder="Enter your comment here..."></textarea>
             </div>
-            <ul class="posts">
-            </ul>
+        </form>
+        <div class="button-group pull-right" style="cursor: pointer;">
+            <a class="btn btn-primary button secondary hollow">
+                Post
+            </a>
         </div>
+        <ul class="posts">
+        </ul>
     </div>
+</div>
 <script>
- document.querySelectorAll('.volunteer-task').forEach((button) => {
+    document.querySelectorAll('.volunteer-task').forEach((button) => {
     button.addEventListener('click', volunteerHandler);
- });
+    });
 </script>
 
