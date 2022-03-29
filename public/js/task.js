@@ -129,7 +129,7 @@ const updateFormHandler = async (event) => {
   if (name || startTime || endTime || description || id) {
     const response = await fetch(`/api/tasks/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ id, name, startTime, endTime, description }),
+      body: JSON.stringify({name, startTime, endTime, description }),
       headers: {
         "Content-Type": "application/json",
       },
