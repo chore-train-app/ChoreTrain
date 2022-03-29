@@ -22,7 +22,7 @@
 {{!-- Edit and Delete Buttons --}}
 {{#if (if_eq @root/user_id this.taskCreator)}}
 <div class="cell">
-    <button data-end="{{this.endTime}}" data-start="{{this.startTime}}" data-desc="{{this.description}}" name="{{this.name}}" id="edit_{{this.id}}" class="edit-task hollow button secondary" data-open="task-details" href="#">
+    <button data-end="{{format_time this.endTime}}" data-start="{{format_time this.startTime}}" data-desc="{{this.description}}" name="{{this.name}}" id="edit_{{this.id}}" class="edit-task hollow button secondary" data-open="task-details" href="#">
         Edit Task
     </button>
     <button id="delete_{{this.id}}" class="delete-task hollow button secondary" data-open="task-details" href="#">

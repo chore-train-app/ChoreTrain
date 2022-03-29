@@ -67,6 +67,7 @@ const newTaskFormHandler = async (event) => {
 const openTaskEditor = (event) => {
   event.preventDefault();
   event.target.parentElement.parentElement.innerHTML = `
+  
   <form class="update-task-form">
   <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
@@ -100,6 +101,14 @@ const openTaskEditor = (event) => {
 </div>
 </form>
 `;
+  flatpickr(".update-start-time", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+  flatpickr(".update-end-time", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
   const updateTaskForm = document.querySelector(".update-task-form");
   updateTaskForm.addEventListener("submit", updateFormHandler);
 };
@@ -113,16 +122,17 @@ const updateFormHandler = async (event) => {
   const name = document.querySelector(".update-task-name").value.trim();
   const startTime = document.querySelector(".update-start-time").value.trim();
   const endTime = document.querySelector(".update-end-time").value.trim();
-  const description = document.querySelector(".update-task-description").value.trim();
+  const description = document
+    .querySelector(".update-task-description")
+    .value.trim();
 
   if (name || startTime || endTime || description || id) {
     const response = await fetch(`/api/tasks`, {
       method: "PUT",
-      body: JSON.stringify({id, name, startTime, endTime, description }),
+      body: JSON.stringify({ id, name, startTime, endTime, description }),
       headers: {
         "Content-Type": "application/json",
       },
-      
     });
     if (response.ok) {
       document.location.replace(`/`);
