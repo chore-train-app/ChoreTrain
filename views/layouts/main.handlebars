@@ -21,28 +21,27 @@
 <body>
     {{!-- Nav will only show if user is logged in --}}
     {{#if logged_in}}
-    <header>
-        <h1 class="custom-h1">Task Train</h1>
-        <nav id="hamNav">
+        <header>
+            <h1 class="custom-h1">Task Train</h1>
+            <nav id="hamNav">
 
-            <label for="hamburger">&#9776;</label>
-            <input type="checkbox" id="hamburger" />
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger" />
 
-
-            <div id="hamItems">
-                <a href="/">DASHBOARD</a>
-                <a id="tasks" href="#">TASKS</a>
-                <a id="logout" href="#">LOGOUT</a>
-            </div>
-        </nav>
-    </header>
+                <div id="hamItems">
+                    <a class="text-center" href="/">DASHBOARD</a>
+                    <a class="text-center" id="tasks" href="#">TASKS</a>
+                    <a class="text-center" id="logout" href="#">LOGOUT</a>
+                </div>
+            </nav>
+        </header>
     {{/if}}
 
     <script src="../../js/nav.js"></script>
 
     {{{body}}}
 
-
+    {{!-- Script for navbar --}}
     <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");

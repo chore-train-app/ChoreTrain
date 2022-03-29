@@ -1,10 +1,11 @@
-
+{{!-- Dashboard page --}}
 <div class="grid-x profile">
     <div class="cell ">
         <h3 class="custom-h3">Welcome, {{ username }} </h3>
     </div>
 </div>
 
+{{!-- Table for Upcoming Tasks --}}
 <div class="grid-x profile">
     <table class="unstriped">
         <thead>
@@ -13,75 +14,76 @@
                     <h4 class="table-h4">Upcoming Tasks</h4>
                 </th>
                 <th width="20%">
-                    <h4 class="table-h4">Details</h4>
+                    <h4 class="table-h4">View Details</h4>
                 </th>
             </tr>
         </thead>
         <tbody>
-           
-        {{#each takenTasks as |task| }}
-            <tr>
-                <td>
-                    <p class="custom-p">{{this.name}}</p>
-                </td>
-                <td><a data-open="view-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
-            </tr>
-          
-            <div class="reveal" id="view-task-details-{{this.id}}" data-reveal>
-                  {{>taskDetails}}
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-        {{/each}}
+            {{#each takenTasks as |task| }}
+                <tr>
+                    <td>
+                        <p class="custom-p">{{this.name}}</p>
+                    </td>
+                    <td><a data-open="view-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
+                </tr>
+            
+                <div class="reveal" id="view-task-details-{{this.id}}" data-reveal>
+                    {{>taskDetails}}
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {{/each}}
         </tbody>
     </table>
 </div>
 
-
+{{!-- Modal button to create New Task --}}
 <div class="grid-x profile">
     <div class="cell ">
         <button class="hollow button secondary new-task-button" data-open="new-task" href="#">Create New Task</button>
     </div>
 </div>
+
 <div class="reveal" id="new-task" data-reveal>
-   
     {{!-- {{>(modalContent)}} --}}
     {{>createTask}}
+
     <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 
+<script src="./js/task.js"></script>
 
+{{!-- Table for User's created tasks --}}
 <div class="grid-x profile">
     <table class="unstriped">
         <thead>
             <tr>
                 <th width="80%">
-                    <h4 class="table-h4">List of Tasks I Need Help With</h4>
+                    <h4 class="table-h4">Tasks I Need Help With</h4>
                 </th>
                 <th width="20%">
-                    <h4 class="table-h4">Details</h4>
+                    <h4 class="table-h4">View Details</h4>
                 </th>
             </tr>
         </thead>
         <tbody>
             {{#each createdTasks as |task|}}
-            <tr>
-                <td>
-                    <p class="custom-p">{{this.name}}</p>
-                </td>
-                <td><a data-open="my-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
-            </tr>
-          
-            <div class="reveal" id="my-task-details-{{this.id}}" data-reveal>
-                  {{>taskDetails}}
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+                <tr>
+                    <td>
+                        <p class="custom-p">{{this.name}}</p>
+                    </td>
+                    <td><a data-open="my-task-details-{{this.id}}" href="#" class="button hollow secondary expanded table-button">View</a></td>
+                </tr>
+            
+                <div class="reveal" id="my-task-details-{{this.id}}" data-reveal>
+                    {{>taskDetails}}
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             {{/each}}
            
         </tbody>
