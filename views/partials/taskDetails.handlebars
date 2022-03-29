@@ -11,7 +11,7 @@
 
 {{!-- Volunteer Button --}}
 <div class="cell">
-    <button id='{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
+    <button id='volunteer_{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
         Volunteer for this task!
     </button>
 </div>
@@ -19,10 +19,10 @@
 {{!-- Edit and Delete Buttons --}}
 {{#if (if_eq @root/user_id this.taskCreator)}}
 <div class="cell">
-    <button class="hollow button secondary" data-open="task-details" href="#">
+    <button id="edit_{{this.id}}" class="edit-task hollow button secondary" data-open="task-details" href="#">
         Edit Task
     </button>
-    <button class="hollow button secondary" data-open="task-details" href="#">
+    <button id="delete_{{this.id}}" class="delete-task hollow button secondary" data-open="task-details" href="#">
         Delete Task
     </button>
 </div>
@@ -31,7 +31,7 @@
 {{!-- Cancel Button --}}
 {{#if (if_eq @root/user_id this.taskTaker)}}
 <div class="cell">
-    <button id="cancel-task" class="hollow button secondary" type="submit" data-open="task-details" href="#">
+    <button class="hollow button secondary cancel-task" type="submit" data-open="task-details" href="#">
         Cancel
     </button>
 </div>
