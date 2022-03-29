@@ -9,12 +9,15 @@
 <p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
 <p>{{this.description}}</p>
 
+
 {{!-- Volunteer Button --}}
+{{#unless (if_eq @root/user_id this.taskCreator)}}
 <div class="cell">
     <button id='volunteer_{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
         Volunteer for this task!
     </button>
 </div>
+{{/unless}}
 
 {{!-- Edit and Delete Buttons --}}
 {{#if (if_eq @root/user_id this.taskCreator)}}
