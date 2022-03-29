@@ -77,19 +77,19 @@ const openTaskEditor = (event) => {
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Start Date and Time</label>
-              <input class="update-task-start" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+              <input class="update-start-time" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>End Date and Time</label>
-              <input class="update-task-end" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+              <input class="update-end-time" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Description
-                  <textarea class="update-task-desc" placeholder="${event.target.desc}"></textarea>
+                  <textarea class="update-task-description" placeholder="${event.target.dataset.desc}"></textarea>
               </label>
           </div>
       </div> 
@@ -104,7 +104,7 @@ const openTaskEditor = (event) => {
   updateTaskForm.addEventListener("submit", updateFormHandler);
 };
 
-// UPDATE TASK
+// SUBMIT UPDATE TASK FORM
 const updateFormHandler = async (event) => {
   event.preventDefault();
 
