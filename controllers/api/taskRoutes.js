@@ -149,9 +149,11 @@ res.status(500).json(err)
     try {
       const taskData = await Task.update({
         status: false,
+        taskTaker: null,
       },{
         where: {
           taskTaker: req.session.user_id,
+          id: req.params.id,
         },
       });
   
