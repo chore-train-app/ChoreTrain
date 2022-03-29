@@ -2,7 +2,7 @@
 const volunteerHandler = async (event) => {
   event.preventDefault();
   console.log(event.target.id);
-  let id = event.target.id.replaceAll(/\D/g, '');
+  let id = event.target.id.replaceAll(/\D/g, "");
   const response = await fetch("/api/tasks/volunteer/" + id, {
     method: "PUT",
     headers: {
@@ -17,25 +17,18 @@ const volunteerHandler = async (event) => {
   }
 };
 
-document.querySelectorAll('.volunteer-task').forEach(button => {
-  button.addEventListener('click', volunteerHandler);
-});
-
 //CANCEL TASK
 const cancelHandler = async (event) => {
   event.preventDefault();
   console.log(event.target.id);
-  let id = event.target.id.replaceAll(/\D/g, '');
-    
-  const response = await fetch(
-    "/api/tasks/VolunteerCancel/" + id,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  let id = event.target.id.replaceAll(/\D/g, "");
+
+  const response = await fetch("/api/tasks/VolunteerCancel/" + id, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   if (response.ok) {
     alert("Canceled!");
     document.location.replace("/");
@@ -43,11 +36,8 @@ const cancelHandler = async (event) => {
     alert("Unable to cancel this task.");
   }
 };
-document
-  .querySelector(".cancel-task")
-  .addEventListener("submit", cancelHandler);
 
-  // CREATE TASK
+// CREATE TASK
 const newTaskFormHandler = async (event) => {
   event.preventDefault();
 
@@ -73,31 +63,69 @@ const newTaskFormHandler = async (event) => {
   }
 };
 
+//OPEN EDIT TASK FORM
 const openTaskEditor = (event) => {
-  
-}
-
-
+  event.preventDefault();
+  event.target.parentElement.parentElement.innerHTML = `
+  <form class="update-task-form">
+  <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+              <label>Title of Task</label>
+              <input class="update-task-name" type="text" placeholder="${event.target.name}" />
+          </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+              <label>Start Date and Time</label>
+              <input class="update-task-start" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+          </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+              <label>End Date and Time</label>
+              <input class="update-task-end" type="text" name="datetime" id="datetime" placeholder="Choose Date and Time" />
+          </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+              <label>Description
+                  <textarea class="update-task-desc" placeholder="${event.target.desc}"></textarea>
+              </label>
+          </div>
+      </div> 
+      <div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+      <button id="update_${event.target.id}" type="submit" class="hollow button secondary" href="#">Update Task</button>
+  </div>
+</div>
+</form>
+`;
+  const updateTaskForm = document.querySelector(".update-task-form");
+  updateTaskForm.addEventListener("submit", updateFormHandler);
+};
 
 // UPDATE TASK
 const updateFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#task-name").value.trim();
-  const startTime = document.querySelector("start-time").value.trim();
-  const endTime = document.querySelector("end-time").value.trim();
-  const description = document.querySelector("task-description").value.trim();
+  let id = event.target.id.replaceAll(/\D/g, "");
 
-  if (name || startTime || endTime || description) {
+  const name = document.querySelector(".update-task-name").value.trim();
+  const startTime = document.querySelector(".update-start-time").value.trim();
+  const endTime = document.querySelector(".update-end-time").value.trim();
+  const description = document.querySelector(".update-task-description").value.trim();
+
+  if (name || startTime || endTime || description || id) {
     const response = await fetch(`/api/tasks`, {
       method: "PUT",
-      body: JSON.stringify({ name, startTime, endTime, description }),
+      body: JSON.stringify({id, name, startTime, endTime, description }),
       headers: {
         "Content-Type": "application/json",
       },
+      
     });
     if (response.ok) {
-      document.location.update(`/api/tasks/${id}`);
+      document.location.replace(`/`);
     } else {
       alert("Failed to update task.");
     }
@@ -106,32 +134,35 @@ const updateFormHandler = async (event) => {
 
 //DELETE TASK
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute("task-id")) {
-    let id = event.target.id.replaceAll(/\D/g, '');
+  event.preventDefault();
+  let id = event.target.id.replaceAll(/\D/g, "");
 
-    const response = await fetch(`/api/tasks/${id}`, {
-      method: "DELETE",
-    });
+  const response = await fetch(`/api/tasks/${id}`, {
+    method: "DELETE",
+  });
 
-    if (response.ok) {
-      document.location.replace("/dashboard");
-    } else {
-      alert("Failed to delete task.");
-    }
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert("Failed to delete task.");
   }
 };
 
+document.querySelectorAll(".edit-task").forEach((button) => {
+  button.addEventListener("click", openTaskEditor);
+});
 
+document.querySelectorAll(".delete-task").forEach((button) => {
+  button.addEventListener("click", delButtonHandler);
+});
 
+document.querySelectorAll(".create-task-form").forEach((button) => {
+  button.addEventListener("submit", newTaskFormHandler);
+});
 
-// document
-//     .querySelector('.update-task')
-//     .addEventListener('submit', updateFormHandler)
-
-document
-  .querySelector('.delete-task')
-  .addEventListener('submit', delButtonHandler);
-
-document
-  .querySelector(".create-task-form")
-  .addEventListener("submit", newTaskFormHandler);
+document.querySelectorAll(".volunteer-task").forEach((button) => {
+  button.addEventListener("click", volunteerHandler);
+});
+document.querySelectorAll(".cancel-task").forEach((button) => {
+  button.addEventListener("click", cancelHandler);
+});
