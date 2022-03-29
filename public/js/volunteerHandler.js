@@ -10,7 +10,7 @@ const volunteerHandler = async (event) => {
   });
   if (response.ok) {
     alert("Volunteered!");
-    document.location.replace("/");
+    document.location.replace("../../api/tasks/zip_code");
   } else {
     alert("Unable to volunteer.");
   }

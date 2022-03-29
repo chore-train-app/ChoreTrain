@@ -128,13 +128,17 @@ res.status(500).json(err)
       const taskData = await Task.update({
         status: true,
         taskTaker: req.session.user_id,
+      },{
+        where: {
+          id: req.params.id,
+      },
       });
-  
+      
       if (!taskData) {
         res.status(404).json({ message: 'Unable to volunteer for task!' });
         return;
       }
-      res.status(200).render('/');
+      res.status(200).json(taskData);
     } catch (err) {
       res.status(500).json(err);
     }
