@@ -66,40 +66,59 @@ const newTaskFormHandler = async (event) => {
 //OPEN EDIT TASK FORM
 const openTaskEditor = (event) => {
   event.preventDefault();
+  // let previousView = event.target.parentElement.parentElement.innerHTML;
   event.target.parentElement.parentElement.innerHTML = `
   
-  <form id="edit_${event.target.id}">
+  <form id="edit_${event.target.id.replaceAll(/\D/g, "")}">
   <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Title of Task</label>
-              <input class="update-task-name" type="text" placeholder="${event.target.name}" />
+              <input class="update-task-name" type="text" placeholder="${
+                event.target.name
+              }" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Start Date and Time</label>
-              <input class="update-start-time" type="text" name="datetime" id="datetime" placeholder="${event.target.dataset.start}" />
+              <input class="update-start-time" type="text" name="datetime" id="datetime" placeholder="${
+                event.target.dataset.start
+              }" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>End Date and Time</label>
-              <input class="update-end-time" type="text" name="datetime" id="datetime" placeholder="${event.target.dataset.end}" />
+              <input class="update-end-time" type="text" name="datetime" id="datetime" placeholder="${
+                event.target.dataset.end
+              }" />
           </div>
       </div>
       <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
               <label>Description
-                  <textarea class="update-task-description" placeholder="${event.target.dataset.desc}"></textarea>
+                  <textarea class="update-task-description" placeholder="${
+                    event.target.dataset.desc
+                  }"></textarea>
               </label>
           </div>
       </div> 
       <div class="grid-x grid-padding-x">
   <div class="large-12 cell">
-      <button id="update_${event.target.id}" type="submit" class="hollow button secondary" href="#">Update Task</button>
+      <button id="update_${event.target.id.replaceAll(
+        /\D/g,
+        ""
+      )}" type="submit" class="hollow button secondary" href="#">Update Task</button>
   </div>
+  
 </div>
 </form>
+<button id="close_${event.target.id.replaceAll(
+    /\D/g,
+    ""
+  )}" class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+</button>
 `;
   flatpickr(".update-start-time", {
     enableTime: true,
@@ -109,7 +128,16 @@ const openTaskEditor = (event) => {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
   });
-  const updateTaskForm = document.querySelector("#edit_" + event.target.id);
+
+  document.querySelector(`#close_${event.target.id.replaceAll(/\D/g, "")}`).addEventListener("click", (event) => {
+    event.preventDefault();
+    // event.target.parentElement.parentElement.innerHTML = previousView;
+    document.location.replace("/");
+  });
+
+  const updateTaskForm = document.querySelector(
+    "#edit_" + event.target.id.replaceAll(/\D/g, "")
+  );
   updateTaskForm.addEventListener("submit", updateFormHandler);
 };
 
@@ -129,7 +157,7 @@ const updateFormHandler = async (event) => {
   if (name || startTime || endTime || description || id) {
     const response = await fetch(`/api/tasks/${id}`, {
       method: "PUT",
-      body: JSON.stringify({name, startTime, endTime, description }),
+      body: JSON.stringify({ name, startTime, endTime, description }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -176,3 +204,19 @@ document.querySelectorAll(".volunteer-task").forEach((button) => {
 document.querySelectorAll(".cancel-task").forEach((button) => {
   button.addEventListener("click", cancelHandler);
 });
+
+
+// function restoreBtns(id) {
+//   document
+//     .querySelector(`#edit_${id}`)
+//     .addEventListener("click", (event) => {
+//       event.preventDefault();
+//       openTaskEditor(event);
+//     });
+//   document
+//     .querySelector(`#delete_${id}`)
+//     .addEventListener("click", (event) => {
+//       event.preventDefault();
+//       delButtonHandler(event);
+//     });
+// }
