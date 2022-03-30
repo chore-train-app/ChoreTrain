@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Task, User } = require('../../models');
+const { Task, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 // const formatTime = require('../../utils/helpers')
 
@@ -7,9 +7,12 @@ const withAuth = require('../../utils/auth');
 
 router.get('/alltasks', withAuth, async (req, res) => {
   try {
+    const commentData = await Comment.findAll();
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
     const taskData = await Task.findAll()
     const tasks = taskData.map((task) => task.get ({plain: true}))
     res.render('localTasks', {
+      comments,
       tasks,
       logged_in: req.session.logged_in,
       include: [{model : User}],

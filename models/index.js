@@ -1,5 +1,6 @@
 const Task = require("./Task");
 const User = require("./User");
+const Comment = require('./Comment');
 
 User.hasMany(Task, {
   foreignKey: "taskCreator",
@@ -15,5 +16,11 @@ User.hasMany(Task, {
   onDelete: "CASCADE",
 });
 
+Task.hasMany(Comment, {
+  foreignKey: "task",
+})
+User.hasMany(Comment, {
+  foreignKey: "user",
+})
 
-module.exports = { User, Task, };
+module.exports = { User, Task, Comment };

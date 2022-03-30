@@ -1,11 +1,13 @@
 const router = require("express").Router();
-const { User, Task } = require("../models");
+const { User, Task, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 const { Op } = require("sequelize");
 const { create } = require("../models/Task");
 
 router.get("/", async (req, res) => {
   if (req.session.logged_in) {
+    const commentData = await Comment.findAll();
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
     const userData = await User.findOne({where: {id: req.session.user_id}})
     const username = userData.dataValues.username
     const taskData = await Task.findAll({
@@ -26,6 +28,7 @@ router.get("/", async (req, res) => {
     );
     console.log(username)
     res.render("dashboard", {
+      comments,
       username,
       createdTasks,
       takenTasks,

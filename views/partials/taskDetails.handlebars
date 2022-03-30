@@ -1,73 +1,117 @@
-{{!-- Detailed task modal --}}
+{{! Detailed task modal }}
 <h4>
-    <span id="edit-field-{{this.id}}">
-        {{this.name}} 
-        {{{get_emoji this.status}}}
-    </span>
+  <span id="edit-field-{{this.id}}">
+    {{this.name}}
+    {{{get_emoji this.status}}}
+  </span>
 </h4>
-<h5>Created by: {{ this.username}}</h5>
-<p>{{ format_time this.startTime}} to {{ format_time this.endTime}}</p>
+<h5>Created by: {{this.username}}</h5>
+<p>{{format_time this.startTime}} to {{format_time this.endTime}}</p>
 <p>{{this.description}}</p>
 
-
-{{!-- Volunteer Button --}}
-{{#unless (if_or (if_eq @root/user_id this.taskCreator) (if_eq @root/user_id this.taskTaker))}}
-<div class="cell">
-    <button id='volunteer_{{this.id}}' type="submit" class="hollow button primary volunteer-task" data-open="task-details" href="#">
-        Volunteer for this task!
+{{! Volunteer Button }}
+{{#unless
+  (if_or
+    (if_eq @root/user_id this.taskCreator) (if_eq @root/user_id this.taskTaker)
+  )
+}}
+  <div class="cell">
+    <button
+      id="volunteer_{{this.id}}"
+      type="submit"
+      class="hollow button primary volunteer-task"
+      data-open="task-details"
+      href="#"
+    >
+      Volunteer for this task!
     </button>
-</div>
+  </div>
 {{/unless}}
 
-{{!-- Edit and Delete Buttons --}}
+{{! Edit and Delete Buttons }}
 {{#if (if_eq @root/user_id this.taskCreator)}}
-<div class="cell">
-    <button data-end="{{format_time this.endTime}}" data-start="{{format_time this.startTime}}" data-desc="{{this.description}}" name="{{this.name}}" id="edit_{{this.id}}" class="edit-task hollow button secondary" data-open="task-details" href="#">
-        Edit Task
+  <div class="cell">
+    <button
+      data-end="{{format_time this.endTime}}"
+      data-start="{{format_time this.startTime}}"
+      data-desc="{{this.description}}"
+      name="{{this.name}}"
+      id="edit_{{this.id}}"
+      class="edit-task hollow button secondary"
+      data-open="task-details"
+      href="#"
+    >
+      Edit Task
     </button>
-    <button id="delete_{{this.id}}" class="delete-task hollow button secondary" data-open="task-details" href="#">
-        Delete Task
+    <button
+      id="delete_{{this.id}}"
+      class="delete-task hollow button secondary"
+      data-open="task-details"
+      href="#"
+    >
+      Delete Task
     </button>
-</div>
+  </div>
 {{/if}}
 
-{{!-- Cancel Button --}}
+{{! Cancel Button }}
 {{#if (if_eq @root/user_id this.taskTaker)}}
-<div class="cell">
-    <button id="cancel_{{this.id}}" class="hollow button secondary cancel-task" type="submit" data-open="task-details" href="#">
-        Cancel
+  <div class="cell">
+    <button
+      id="cancel_{{this.id}}"
+      class="hollow button secondary cancel-task"
+      type="submit"
+      data-open="task-details"
+      href="#"
+    >
+      Cancel
     </button>
-</div>
+  </div>
 {{/if}}
 
-{{!--Add to Calendar button--}}
+{{!Add to Calendar button}}
 <div title="Add to Calendar" class="addeventatc">
-    Add to Calendar
-    <span class="start">{{ format_time this.startTime}}</span>
-    <span class="end">{{ format_time this.endTime}}</span>
-    <span class="title">{{this.name}}</span>
-    <span class="description">{{this.description}}</span>
+  Add to Calendar
+  <span class="start">{{format_time this.startTime}}</span>
+  <span class="end">{{format_time this.endTime}}</span>
+  <span class="title">{{this.name}}</span>
+  <span class="description">{{this.description}}</span>
 </div>
 
 {{#if status}}
-{{!-- Chat box --}}
-<div class="grid-x profile">
-    <div class="cell container">
-        <form>
-            <label>
-                Chat box
-            </label>
-            <div class="form-group">
-                <textarea class="form-control status-box" rows="3" placeholder="Enter your comment here..."></textarea>
-            </div>
-        </form>
-        <div class="button-group pull-right" style="cursor: pointer;">
-            <a class="btn btn-primary button secondary hollow">
-                Post
-            </a>
+  {{! Chat box }}
+  <div class="grid-x profile">
+    <div class="cell container chatbox">
+      <form id="comment_{{this.id}}">
+        <label>
+          Chat box
+        </label>
+        <div class="form-group">
+          <textarea
+            id="inputfield_{{this.id}}"
+            class="form-control status-box"
+            rows="3"
+            placeholder="Enter your comment here..."
+          ></textarea>
         </div>
-        <ul class="posts">
-        </ul>
+      </form>
+      <div class="button-group pull-right" style="cursor: pointer;">
+        <a
+          id="post_{{this.id}}"
+          class="btn btn-primary button secondary hollow"
+        >
+          Post
+        </a>
+      </div>
+      <ul id="posts_{{this.id}}" class="posts">
+          {{#each comments as |comment|}}
+          {{#if (if_eq this.task ..this.id )}}
+          <li>
+              {{this.body}}
+          </li>
+            {{/if}}
+          {{/each}}
+      </ul>
     </div>
-</div>
+  </div>
 {{/if}}
