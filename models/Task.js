@@ -58,6 +58,15 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    comments: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+      },
+    },
   },
   {
     sequelize,
