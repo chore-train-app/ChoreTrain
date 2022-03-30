@@ -58,6 +58,10 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    volunteerName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   },
   {
     sequelize,
