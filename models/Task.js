@@ -58,6 +58,10 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    volunteerName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     comments: {
       type: DataTypes.TEXT,
       allowNull: true,
@@ -67,6 +71,7 @@ Task.init(
         autoIncrement: true,
       },
     },
+
   },
   {
     sequelize,
