@@ -132,6 +132,7 @@ res.status(500).json(err)
       const taskData = await Task.update({
         status: true,
         taskTaker: req.session.user_id,
+        volunteerName: req.session.username,
       },{
         where: {
           id: req.params.id,
